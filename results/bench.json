@@ -1,0 +1,2084 @@
+{
+  "device": "AMD Instinct MI350X VF (gfx950, wave64) | 256 CU @ 2.2 GHz | LDS 160 KB/CU | HBM 8.0 TB/s | FlyDSL 0.2.4",
+  "rows": [
+    {
+      "op": "elementwise",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v0_float",
+      "summary": "one f32 per lane (buffer_load_dword)",
+      "origin": "elementwise/elementwise_add.cu:add",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 7.955530131599541e-05,
+      "best_seconds": 7.951477891415706e-05,
+      "spread": 0.027703962308375088,
+      "iters": 599,
+      "metrics": {
+        "GB/s": 5061.299213746331
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.8701549997868581,
+      "torch_seconds": 6.922544319966341e-05
+    },
+    {
+      "op": "elementwise",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v1_float2",
+      "summary": "two f32 per lane (buffer_load_dwordx2)",
+      "origin": "elementwise/elementwise_add.cu:vec2_add",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 7.733284799676193e-05,
+      "best_seconds": 7.712079976734363e-05,
+      "spread": 0.02939982397588614,
+      "iters": 608,
+      "metrics": {
+        "GB/s": 5206.7548839900455
+      },
+      "speedup_vs_baseline": 1.028738800869283,
+      "vs_torch": 0.8951622110511436,
+      "torch_seconds": 6.922544319966341e-05
+    },
+    {
+      "op": "elementwise",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v2_float4",
+      "summary": "four f32 per lane (buffer_load_dwordx4)",
+      "origin": "elementwise/elementwise_add.cu:vec4_add",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 6.932124444993875e-05,
+      "best_seconds": 6.924325328762248e-05,
+      "spread": 0.019375354085740478,
+      "iters": 708,
+      "metrics": {
+        "GB/s": 5808.510611646351
+      },
+      "speedup_vs_baseline": 1.1476323304242946,
+      "vs_torch": 0.9986180102357436,
+      "torch_seconds": 6.922544319966341e-05
+    },
+    {
+      "op": "elementwise",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v3_float4_x4",
+      "summary": "4x float4 per lane -- more loads in flight",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 7.324813039679277e-05,
+      "best_seconds": 7.313990772218632e-05,
+      "spread": 0.005528765053211489,
+      "iters": 665,
+      "metrics": {
+        "GB/s": 5497.112101275291
+      },
+      "speedup_vs_baseline": 1.0861069202044618,
+      "vs_torch": 0.9450813669190185,
+      "torch_seconds": 6.922544319966341e-05
+    },
+    {
+      "op": "elementwise",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v0_float",
+      "summary": "one f32 per lane (buffer_load_dword)",
+      "origin": "elementwise/elementwise_add.cu:add",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0006282714122050517,
+      "best_seconds": 0.0006273998054298195,
+      "spread": 0.0074340185012317156,
+      "iters": 74,
+      "metrics": {
+        "GB/s": 5127.124057251668
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.8749722379964247,
+      "torch_seconds": 0.0005497200436062283
+    },
+    {
+      "op": "elementwise",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v1_float2",
+      "summary": "two f32 per lane (buffer_load_dwordx2)",
+      "origin": "elementwise/elementwise_add.cu:vec2_add",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0006003735860188802,
+      "best_seconds": 0.0005984897613525391,
+      "spread": 0.015220131544712785,
+      "iters": 78,
+      "metrics": {
+        "GB/s": 5365.368408960451
+      },
+      "speedup_vs_baseline": 1.0464674443310604,
+      "vs_torch": 0.9156299617567469,
+      "torch_seconds": 0.0005497200436062283
+    },
+    {
+      "op": "elementwise",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v2_float4",
+      "summary": "four f32 per lane (buffer_load_dwordx4)",
+      "origin": "elementwise/elementwise_add.cu:vec4_add",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0005487960563911186,
+      "best_seconds": 0.000547454330947373,
+      "spread": 0.0026032749123540435,
+      "iters": 91,
+      "metrics": {
+        "GB/s": 5869.622120069102
+      },
+      "speedup_vs_baseline": 1.1448176510898471,
+      "vs_torch": 1.0016836622718936,
+      "torch_seconds": 0.0005497200436062283
+    },
+    {
+      "op": "elementwise",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v3_float4_x4",
+      "summary": "4x float4 per lane -- more loads in flight",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0005758130690630745,
+      "best_seconds": 0.0005745918722713694,
+      "spread": 0.004176641345304411,
+      "iters": 85,
+      "metrics": {
+        "GB/s": 5594.220841915534
+      },
+      "speedup_vs_baseline": 1.0911030783433484,
+      "vs_torch": 0.9546849023428678,
+      "torch_seconds": 0.0005497200436062283
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v0_baseline",
+      "summary": "LDS tree, tid % (2s) == 0 -- divergent",
+      "origin": "reduce/reduce_v0_baseline.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 7.878806139971759e-05,
+      "best_seconds": 7.877893061251253e-05,
+      "spread": 0.0019100257952442664,
+      "iters": 592,
+      "metrics": {
+        "GB/s": 1703.5287531580398
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.508747128030717,
+      "torch_seconds": 4.008319996021412e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v1_no_divergence",
+      "summary": "index = 2*s*tid -- active lanes contiguous",
+      "origin": "reduce/reduce_v1_no_divergence_branch.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 7.703284651679301e-05,
+      "best_seconds": 7.695594297405915e-05,
+      "spread": 0.0019060050621758048,
+      "iters": 607,
+      "metrics": {
+        "GB/s": 1742.3441307045662
+      },
+      "speedup_vs_baseline": 1.0227852787776957,
+      "vs_torch": 0.5192521235230597,
+      "torch_seconds": 3.99994691348707e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v2_no_bank_conflict",
+      "summary": "s halving, tid < s -- conflict-free LDS",
+      "origin": "reduce/reduce_v2_no_bank_conflict.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 6.969233270901352e-05,
+      "best_seconds": 6.965227269414646e-05,
+      "spread": 0.000822596040885845,
+      "iters": 670,
+      "metrics": {
+        "GB/s": 1925.860747987866
+      },
+      "speedup_vs_baseline": 1.1305126164836736,
+      "vs_torch": 0.5745517312574484,
+      "torch_seconds": 4.004185041333382e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v3_add_during_load",
+      "summary": "fold 2 globals per thread before the tree",
+      "origin": "reduce/reduce_v3_add_during_load.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 3.702847357192657e-05,
+      "best_seconds": 3.7015080160500075e-05,
+      "spread": 0.0011187857434204172,
+      "iters": 1227,
+      "metrics": {
+        "GB/s": 3624.716739654054
+      },
+      "speedup_vs_baseline": 2.1277696269783957,
+      "vs_torch": 0.7080590783338262,
+      "torch_seconds": 2.621834686944677e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v4_unroll_last_wave",
+      "summary": "last 64 lanes finish in registers, no barrier",
+      "origin": "reduce/reduce_v4_unroll_last_warp.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 3.345767351987221e-05,
+      "best_seconds": 3.3429888516462683e-05,
+      "spread": 0.009509365666526368,
+      "iters": 1329,
+      "metrics": {
+        "GB/s": 4011.56786709277
+      },
+      "speedup_vs_baseline": 2.3548577384772846,
+      "vs_torch": 0.783151784177221,
+      "torch_seconds": 2.620243671150688e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v5_full_unroll",
+      "summary": "LDS levels emitted straight-line (constexpr)",
+      "origin": "reduce/reduce_v5_completely_unroll.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 3.341515906771323e-05,
+      "best_seconds": 3.3402854517886514e-05,
+      "spread": 0.008471494936673362,
+      "iters": 1330,
+      "metrics": {
+        "GB/s": 4016.6718263413973
+      },
+      "speedup_vs_baseline": 2.3578538483105733,
+      "vs_torch": 0.7841456976769227,
+      "torch_seconds": 2.6202353220137337e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v6_multi_add",
+      "summary": "serial accumulate N/262144 per thread, then the tree",
+      "origin": "reduce/reduce_v6_multi_add.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 1.96044921875e-05,
+      "best_seconds": 1.9593252182006834e-05,
+      "spread": 0.0012803549190536416,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 6846.274145554172
+      },
+      "speedup_vs_baseline": 4.018877951347986,
+      "vs_torch": 1.3196501010775987,
+      "torch_seconds": 2.587107009680937e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v7_shuffle",
+      "summary": "serial accumulate, then wave shuffle + 4 LDS slots",
+      "origin": "reduce/reduce_v7_shuffle.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 1.9377466201782227e-05,
+      "best_seconds": 1.936896324157715e-05,
+      "spread": 0.0020253218382668275,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 6926.484949185742
+      },
+      "speedup_vs_baseline": 4.06596304074426,
+      "vs_torch": 1.3318864320926813,
+      "torch_seconds": 2.5808584322488254e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v8_shuffle_vec4",
+      "summary": "v7 with dwordx4 loads",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 1.959312629699707e-05,
+      "best_seconds": 1.9581764221191407e-05,
+      "spread": 0.0007237812317441582,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 6850.245640511734
+      },
+      "speedup_vs_baseline": 4.021209285615282,
+      "vs_torch": 1.3190847505449388,
+      "torch_seconds": 2.5844994113869862e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=32M",
+      "params": {
+        "N": 33554432
+      },
+      "variant": "v9_vec4_wide_grid",
+      "summary": "v8 on a 8192-block grid (32/CU)",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 1.9699871063232424e-05,
+      "best_seconds": 1.9678672790527344e-05,
+      "spread": 0.002128208360515502,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 6813.127231604179
+      },
+      "speedup_vs_baseline": 3.999420155940339,
+      "vs_torch": 1.130349542804572,
+      "torch_seconds": 2.226774024963379e-05
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v0_baseline",
+      "summary": "LDS tree, tid % (2s) == 0 -- divergent",
+      "origin": "reduce/reduce_v0_baseline.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0007048955723859262,
+      "best_seconds": 0.0007042989869048631,
+      "spread": 0.002497861586405591,
+      "iters": 69,
+      "metrics": {
+        "GB/s": 1523.263680555696
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.4865057134029284,
+      "torch_seconds": 0.0003429357233181806
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v1_no_divergence",
+      "summary": "index = 2*s*tid -- active lanes contiguous",
+      "origin": "reduce/reduce_v1_no_divergence_branch.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0006979358834280095,
+      "best_seconds": 0.0006975811703104368,
+      "spread": 0.0006391001666725764,
+      "iters": 71,
+      "metrics": {
+        "GB/s": 1538.4533873314656
+      },
+      "speedup_vs_baseline": 1.0099718170725558,
+      "vs_torch": 0.49265760399059283,
+      "torch_seconds": 0.00034384342006870083
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v2_no_bank_conflict",
+      "summary": "s halving, tid < s -- conflict-free LDS",
+      "origin": "reduce/reduce_v2_no_bank_conflict.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0006423273953524503,
+      "best_seconds": 0.0006415654962713068,
+      "spread": 0.017410908311213752,
+      "iters": 77,
+      "metrics": {
+        "GB/s": 1671.642579421401
+      },
+      "speedup_vs_baseline": 1.0974085450600224,
+      "vs_torch": 0.534564586533348,
+      "torch_seconds": 0.00034336547851562495
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v3_add_during_load",
+      "summary": "fold 2 globals per thread before the tree",
+      "origin": "reduce/reduce_v3_add_during_load.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0003411917519736123,
+      "best_seconds": 0.00034081553745936684,
+      "spread": 0.0015864594191326426,
+      "iters": 143,
+      "metrics": {
+        "GB/s": 3147.0333552583734
+      },
+      "speedup_vs_baseline": 2.0659806935791423,
+      "vs_torch": 0.6864968367257537,
+      "torch_seconds": 0.00023422705844680278
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v4_unroll_last_wave",
+      "summary": "last 64 lanes finish in registers, no barrier",
+      "origin": "reduce/reduce_v4_unroll_last_warp.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.00030652933854323163,
+      "best_seconds": 0.00030638648302127154,
+      "spread": 0.02418392206426103,
+      "iters": 156,
+      "metrics": {
+        "GB/s": 3502.900665570594
+      },
+      "speedup_vs_baseline": 2.2996023014825075,
+      "vs_torch": 0.7369448067491716,
+      "torch_seconds": 0.00022589520415569324
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v5_full_unroll",
+      "summary": "LDS levels emitted straight-line (constexpr)",
+      "origin": "reduce/reduce_v5_completely_unroll.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0003066345117031,
+      "best_seconds": 0.0003061932294796675,
+      "spread": 0.018993028037296654,
+      "iters": 156,
+      "metrics": {
+        "GB/s": 3501.6991989461853
+      },
+      "speedup_vs_baseline": 2.298813556474178,
+      "vs_torch": 0.7361187109569364,
+      "torch_seconds": 0.00022571940148979558
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v6_multi_add",
+      "summary": "serial accumulate N/262144 per thread, then the tree",
+      "origin": "reduce/reduce_v6_multi_add.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0001734413570827908,
+      "best_seconds": 0.00017312635315789118,
+      "spread": 0.002984561931282865,
+      "iters": 288,
+      "metrics": {
+        "GB/s": 6190.806172529302
+      },
+      "speedup_vs_baseline": 4.0641723764272095,
+      "vs_torch": 2.327897201652841,
+      "torch_seconds": 0.00040375364980389995
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v7_shuffle",
+      "summary": "serial accumulate, then wave shuffle + 4 LDS slots",
+      "origin": "reduce/reduce_v7_shuffle.cu",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.00017364463806152344,
+      "best_seconds": 0.0001735605103628976,
+      "spread": 0.035317991220794175,
+      "iters": 280,
+      "metrics": {
+        "GB/s": 6183.558766839471
+      },
+      "speedup_vs_baseline": 4.059414562148341,
+      "vs_torch": 2.3283704165560595,
+      "torch_seconds": 0.0004043090382560355
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v8_shuffle_vec4",
+      "summary": "v7 with dwordx4 loads",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.000169910509561755,
+      "best_seconds": 0.0001698530400331897,
+      "spread": 0.03741182401303177,
+      "iters": 291,
+      "metrics": {
+        "GB/s": 6319.455028234978
+      },
+      "speedup_vs_baseline": 4.148628440960137,
+      "vs_torch": 2.3837328370151614,
+      "torch_seconds": 0.0004050212609963339
+    },
+    {
+      "op": "reduce",
+      "shape": "N=256M",
+      "params": {
+        "N": 268435456
+      },
+      "variant": "v9_vec4_wide_grid",
+      "summary": "v8 on a 8192-block grid (32/CU)",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.000172309032239412,
+      "best_seconds": 0.00017213836134525768,
+      "spread": 0.001726895959858862,
+      "iters": 285,
+      "metrics": {
+        "GB/s": 6231.488912943963
+      },
+      "speedup_vs_baseline": 4.090879991749477,
+      "vs_torch": 1.0580140772507405,
+      "torch_seconds": 0.0001823053817467496
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=16",
+      "params": {
+        "M": 16384,
+        "N": 16
+      },
+      "variant": "v0_wave_per_row",
+      "summary": "1 wavefront per row, 1 column per lane",
+      "origin": "sgemv/Sgemv_v0.cu",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=16",
+      "params": {
+        "M": 16384,
+        "N": 16
+      },
+      "variant": "v1_wave_per_row_vec4",
+      "summary": "1 wavefront per row, float4 per lane",
+      "origin": "sgemv/Sgemv_v1.cu",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=16",
+      "params": {
+        "M": 16384,
+        "N": 16
+      },
+      "variant": "v2_subwave_per_row",
+      "summary": "64/N rows per wavefront, N lanes each",
+      "origin": "sgemv/Sgemv_v2.cu",
+      "max_err": 0.0007071139407344162,
+      "status": "OK",
+      "seconds": 7.353612899780274e-06,
+      "best_seconds": 7.0591893196105956e-06,
+      "spread": 0.060675697091697914,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 151.51409452533076,
+        "GFLOP/s": 71.29665473901484
+      },
+      "vs_torch": 1.7767725671789596,
+      "torch_seconds": 1.306569766998291e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=16",
+      "params": {
+        "M": 16384,
+        "N": 16
+      },
+      "variant": "v3_block_per_row",
+      "summary": "1 workgroup per row + LDS block reduce",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=64",
+      "params": {
+        "M": 16384,
+        "N": 64
+      },
+      "variant": "v0_wave_per_row",
+      "summary": "1 wavefront per row, 1 column per lane",
+      "origin": "sgemv/Sgemv_v0.cu",
+      "max_err": 0.0008019109372980893,
+      "status": "OK",
+      "seconds": 7.254192352294922e-06,
+      "best_seconds": 6.991969108581543e-06,
+      "spread": 0.04811615534566693,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 587.2598620371963,
+        "GFLOP/s": 289.0951739564156
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 1.8045132551167595,
+      "torch_seconds": 1.3090286254882813e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=64",
+      "params": {
+        "M": 16384,
+        "N": 64
+      },
+      "variant": "v1_wave_per_row_vec4",
+      "summary": "1 wavefront per row, float4 per lane",
+      "origin": "sgemv/Sgemv_v1.cu",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=64",
+      "params": {
+        "M": 16384,
+        "N": 64
+      },
+      "variant": "v2_subwave_per_row",
+      "summary": "64/N rows per wavefront, N lanes each",
+      "origin": "sgemv/Sgemv_v2.cu",
+      "max_err": 0.0008019109372980893,
+      "status": "OK",
+      "seconds": 7.497294902801514e-06,
+      "best_seconds": 7.137530326843262e-06,
+      "spread": 0.056770519202895935,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 568.21774456386,
+        "GFLOP/s": 279.7211563888673
+      },
+      "speedup_vs_baseline": 0.967574631429297,
+      "vs_torch": 1.7460012477288795,
+      "torch_seconds": 1.3090286254882813e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=64",
+      "params": {
+        "M": 16384,
+        "N": 64
+      },
+      "variant": "v3_block_per_row",
+      "summary": "1 workgroup per row + LDS block reduce",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=256",
+      "params": {
+        "M": 16384,
+        "N": 256
+      },
+      "variant": "v0_wave_per_row",
+      "summary": "1 wavefront per row, 1 column per lane",
+      "origin": "sgemv/Sgemv_v0.cu",
+      "max_err": 0.0005338453338481486,
+      "status": "OK",
+      "seconds": 7.325413703918457e-06,
+      "best_seconds": 7.181491374969483e-06,
+      "spread": 0.059464972706926786,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 2299.361739936961,
+        "GFLOP/s": 1145.1377818447068
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 1.891712458891798,
+      "torch_seconds": 1.3857576370239257e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=256",
+      "params": {
+        "M": 16384,
+        "N": 256
+      },
+      "variant": "v1_wave_per_row_vec4",
+      "summary": "1 wavefront per row, float4 per lane",
+      "origin": "sgemv/Sgemv_v1.cu",
+      "max_err": 0.00018383367569185793,
+      "status": "OK",
+      "seconds": 7.499655723571777e-06,
+      "best_seconds": 7.1440110206604e-06,
+      "spread": 0.051722993469320064,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 2245.939896555412,
+        "GFLOP/s": 1118.532411245786
+      },
+      "speedup_vs_baseline": 0.9767666642209096,
+      "vs_torch": 1.847761668136876,
+      "torch_seconds": 1.3857576370239257e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=256",
+      "params": {
+        "M": 16384,
+        "N": 256
+      },
+      "variant": "v2_subwave_per_row",
+      "summary": "64/N rows per wavefront, N lanes each",
+      "origin": "sgemv/Sgemv_v2.cu",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=256",
+      "params": {
+        "M": 16384,
+        "N": 256
+      },
+      "variant": "v3_block_per_row",
+      "summary": "1 workgroup per row + LDS block reduce",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=4096",
+      "params": {
+        "M": 16384,
+        "N": 4096
+      },
+      "variant": "v0_wave_per_row",
+      "summary": "1 wavefront per row, 1 column per lane",
+      "origin": "sgemv/Sgemv_v0.cu",
+      "max_err": 0.0010234250221401453,
+      "status": "OK",
+      "seconds": 3.704011909454223e-05,
+      "best_seconds": 3.70319902657505e-05,
+      "spread": 0.002468657447577135,
+      "iters": 1245,
+      "metrics": {
+        "GB/s": 7249.365892011005,
+        "GFLOP/s": 3623.5771180275888
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 1.5311349938999887,
+      "torch_seconds": 5.671342252387677e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=4096",
+      "params": {
+        "M": 16384,
+        "N": 4096
+      },
+      "variant": "v1_wave_per_row_vec4",
+      "summary": "1 wavefront per row, float4 per lane",
+      "origin": "sgemv/Sgemv_v1.cu",
+      "max_err": 0.0009661043877713382,
+      "status": "OK",
+      "seconds": 3.753149752317644e-05,
+      "best_seconds": 3.750567447876872e-05,
+      "spread": 0.0012448608486126385,
+      "iters": 1227,
+      "metrics": {
+        "GB/s": 7154.45409110535,
+        "GFLOP/s": 3576.13569554793
+      },
+      "speedup_vs_baseline": 0.9869075720111947,
+      "vs_torch": 1.5110887192512132,
+      "torch_seconds": 5.671342252387677e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=4096",
+      "params": {
+        "M": 16384,
+        "N": 4096
+      },
+      "variant": "v2_subwave_per_row",
+      "summary": "64/N rows per wavefront, N lanes each",
+      "origin": "sgemv/Sgemv_v2.cu",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=16384,N=4096",
+      "params": {
+        "M": 16384,
+        "N": 4096
+      },
+      "variant": "v3_block_per_row",
+      "summary": "1 workgroup per row + LDS block reduce",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.0010234250221401453,
+      "status": "OK",
+      "seconds": 3.6241833158331e-05,
+      "best_seconds": 3.6201584088272724e-05,
+      "spread": 0.002187584577647726,
+      "iters": 1283,
+      "metrics": {
+        "GB/s": 7409.045089604559,
+        "GFLOP/s": 3703.392359145802
+      },
+      "speedup_vs_baseline": 1.0220266434295342,
+      "vs_torch": 1.5648607584531058,
+      "torch_seconds": 5.671342252387677e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=1024,N=16384",
+      "params": {
+        "M": 1024,
+        "N": 16384
+      },
+      "variant": "v0_wave_per_row",
+      "summary": "1 wavefront per row, 1 column per lane",
+      "origin": "sgemv/Sgemv_v0.cu",
+      "max_err": 0.00014930323231965303,
+      "status": "OK",
+      "seconds": 1.1174921989440917e-05,
+      "best_seconds": 1.1172293663024903e-05,
+      "spread": 0.0014056446819377293,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 6011.540488915838,
+        "GFLOP/s": 3002.6546969818028
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 1.8766256846981357,
+      "torch_seconds": 2.0971145629882813e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=1024,N=16384",
+      "params": {
+        "M": 1024,
+        "N": 16384
+      },
+      "variant": "v1_wave_per_row_vec4",
+      "summary": "1 wavefront per row, float4 per lane",
+      "origin": "sgemv/Sgemv_v1.cu",
+      "max_err": 0.0006016175029799342,
+      "status": "OK",
+      "seconds": 1.12186222076416e-05,
+      "best_seconds": 1.1213022232055665e-05,
+      "spread": 0.0009929801970114355,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 5988.123564250265,
+        "GFLOP/s": 2990.958370729722
+      },
+      "speedup_vs_baseline": 0.9961046715548619,
+      "vs_torch": 1.8693156112876543,
+      "torch_seconds": 2.0971145629882813e-05
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=1024,N=16384",
+      "params": {
+        "M": 1024,
+        "N": 16384
+      },
+      "variant": "v2_subwave_per_row",
+      "summary": "64/N rows per wavefront, N lanes each",
+      "origin": "sgemv/Sgemv_v2.cu",
+      "status": "SKIP",
+      "note": "shape unsupported by this variant"
+    },
+    {
+      "op": "sgemv",
+      "shape": "M=1024,N=16384",
+      "params": {
+        "M": 1024,
+        "N": 16384
+      },
+      "variant": "v3_block_per_row",
+      "summary": "1 workgroup per row + LDS block reduce",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.00011203631584066898,
+      "status": "OK",
+      "seconds": 1.0793778419494629e-05,
+      "best_seconds": 1.0789578437805175e-05,
+      "spread": 0.004187541421495295,
+      "iters": 2000,
+      "metrics": {
+        "GB/s": 6223.816479192218,
+        "GFLOP/s": 3108.6826777356655
+      },
+      "speedup_vs_baseline": 1.0353114132172572,
+      "vs_torch": 1.9428919897046297,
+      "torch_seconds": 2.0971145629882813e-05
+    },
+    {
+      "op": "sgemm",
+      "shape": "1024^3",
+      "params": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "variant": "v0_naive",
+      "summary": "one thread per C element, all operands from global",
+      "origin": "(baseline; the CUDA repo starts at v1)",
+      "max_err": 7.264791011810303,
+      "status": "OK",
+      "seconds": 0.0002500326700050738,
+      "best_seconds": 0.00024992809615321664,
+      "spread": 0.012325700702417827,
+      "iters": 179,
+      "metrics": {
+        "TFLOP/s": 8.58881220584663,
+        "GB/s": 50.32507151863259
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.09212096184273241,
+      "torch_seconds": 2.303325005297391e-05
+    },
+    {
+      "op": "sgemm",
+      "shape": "1024^3",
+      "params": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "variant": "v1_lds_tile",
+      "summary": "16x16x16 LDS tile, 1 C element per thread",
+      "origin": "(blocking level 1)",
+      "max_err": 7.264791011810303,
+      "status": "OK",
+      "seconds": 0.00015105140499952364,
+      "best_seconds": 0.00015066844661061358,
+      "spread": 0.06270281533511396,
+      "iters": 287,
+      "metrics": {
+        "TFLOP/s": 14.216906145340207,
+        "GB/s": 83.30218444535276
+      },
+      "speedup_vs_baseline": 1.6552819883129344,
+      "vs_torch": 0.15248616888433808,
+      "torch_seconds": 2.303325005297391e-05
+    },
+    {
+      "op": "sgemm",
+      "shape": "1024^3",
+      "params": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "variant": "v2_thread_tile",
+      "summary": "128x128x8 tile, 8x8 per thread, float4 + LDS",
+      "origin": "sgemm/sgemm_v1.cu",
+      "max_err": 28.02273941040039,
+      "status": "OK",
+      "seconds": 0.00020500731971193466,
+      "best_seconds": 0.00020463956358060555,
+      "spread": 0.002858428005135757,
+      "iters": 237,
+      "metrics": {
+        "TFLOP/s": 10.475155965248115,
+        "GB/s": 61.37786698387568
+      },
+      "speedup_vs_baseline": 1.2196280130700032,
+      "vs_torch": 0.11235330565434934,
+      "torch_seconds": 2.303325005297391e-05
+    },
+    {
+      "op": "sgemm",
+      "shape": "1024^3",
+      "params": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "variant": "v3_prefetch",
+      "summary": "v2 + next-tile global prefetch into registers",
+      "origin": "sgemm/sgemm_v3.cu",
+      "max_err": 28.02273941040039,
+      "status": "OK",
+      "seconds": 0.00017974796579844918,
+      "best_seconds": 0.00017941825069598297,
+      "spread": 0.002500213808547962,
+      "iters": 268,
+      "metrics": {
+        "TFLOP/s": 11.947193051452757,
+        "GB/s": 70.003084285856
+      },
+      "speedup_vs_baseline": 1.3910180785324415,
+      "vs_torch": 0.12814192333503802,
+      "torch_seconds": 2.303325005297391e-05
+    },
+    {
+      "op": "sgemm",
+      "shape": "1024^3",
+      "params": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "variant": "v4_double_buffer",
+      "summary": "v3 + LDS ping-pong: one barrier per K-tile",
+      "origin": "sgemm/sgemm_v3.cu (ENABLE_DOUBLE_BUFFER)",
+      "max_err": 28.02273941040039,
+      "status": "OK",
+      "seconds": 0.00018670547840207122,
+      "best_seconds": 0.00018629757193631903,
+      "spread": 0.003526673572240914,
+      "iters": 258,
+      "metrics": {
+        "TFLOP/s": 11.50198519282537,
+        "GB/s": 67.39444448921115
+      },
+      "speedup_vs_baseline": 1.3391822893735723,
+      "vs_torch": 0.1233667605798459,
+      "torch_seconds": 2.303325005297391e-05
+    },
+    {
+      "op": "sgemm",
+      "shape": "1024^3",
+      "params": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "variant": "v5_mfma",
+      "summary": "same blocking, v_mfma_f32_16x16x4_f32 matrix cores",
+      "origin": "(CDNA4 answer to the repo's SASS-tuning chapter)",
+      "max_err": 28.02273941040039,
+      "status": "OK",
+      "seconds": 0.00012704963986036961,
+      "best_seconds": 0.00012701786413670844,
+      "spread": 0.000486900236708378,
+      "iters": 379,
+      "metrics": {
+        "TFLOP/s": 16.902713383210944,
+        "GB/s": 99.03933622975161
+      },
+      "speedup_vs_baseline": 1.9679919618809252,
+      "vs_torch": 0.1812933124272368,
+      "torch_seconds": 2.303325005297391e-05
+    },
+    {
+      "op": "sgemm",
+      "shape": "2048^3",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048
+      },
+      "variant": "v0_naive",
+      "summary": "one thread per C element, all operands from global",
+      "origin": "(baseline; the CUDA repo starts at v1)",
+      "max_err": 0.4917203485965729,
+      "status": "OK",
+      "seconds": 0.0019650703098462977,
+      "best_seconds": 0.001963901519775391,
+      "spread": 0.0029825231587179784,
+      "iters": 23,
+      "metrics": {
+        "TFLOP/s": 8.742623150895685,
+        "GB/s": 25.6131537623897
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.07209109501542413,
+      "torch_seconds": 0.00014166407041911838
+    },
+    {
+      "op": "sgemm",
+      "shape": "2048^3",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048
+      },
+      "variant": "v1_lds_tile",
+      "summary": "16x16x16 LDS tile, 1 C element per thread",
+      "origin": "(blocking level 1)",
+      "max_err": 0.4917203485965729,
+      "status": "OK",
+      "seconds": 0.0011356749663481841,
+      "best_seconds": 0.0011309808267129435,
+      "spread": 0.02277326667201674,
+      "iters": 37,
+      "metrics": {
+        "TFLOP/s": 15.127452566153387,
+        "GB/s": 44.3187086899025
+      },
+      "speedup_vs_baseline": 1.7303104920636518,
+      "vs_torch": 0.124739978089546,
+      "torch_seconds": 0.00014166407041911838
+    },
+    {
+      "op": "sgemm",
+      "shape": "2048^3",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048
+      },
+      "variant": "v2_thread_tile",
+      "summary": "128x128x8 tile, 8x8 per thread, float4 + LDS",
+      "origin": "sgemm/sgemm_v1.cu",
+      "max_err": 0.5712376236915588,
+      "status": "OK",
+      "seconds": 0.00040814068081142664,
+      "best_seconds": 0.00040795688800983603,
+      "spread": 0.01215747194505646,
+      "iters": 111,
+      "metrics": {
+        "TFLOP/s": 42.09300859165671,
+        "GB/s": 123.31936110836926
+      },
+      "speedup_vs_baseline": 4.81468866553447,
+      "vs_torch": 0.34709617805673104,
+      "torch_seconds": 0.00014166407041911838
+    },
+    {
+      "op": "sgemm",
+      "shape": "2048^3",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048
+      },
+      "variant": "v3_prefetch",
+      "summary": "v2 + next-tile global prefetch into registers",
+      "origin": "sgemm/sgemm_v3.cu",
+      "max_err": 0.5712376236915588,
+      "status": "OK",
+      "seconds": 0.0003604751524886465,
+      "best_seconds": 0.0003603522137897771,
+      "spread": 0.037265669436190405,
+      "iters": 123,
+      "metrics": {
+        "TFLOP/s": 47.65895531326835,
+        "GB/s": 139.62584564434087
+      },
+      "speedup_vs_baseline": 5.451333597558265,
+      "vs_torch": 0.3929926083423467,
+      "torch_seconds": 0.00014166407041911838
+    },
+    {
+      "op": "sgemm",
+      "shape": "2048^3",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048
+      },
+      "variant": "v4_double_buffer",
+      "summary": "v3 + LDS ping-pong: one barrier per K-tile",
+      "origin": "sgemm/sgemm_v3.cu (ENABLE_DOUBLE_BUFFER)",
+      "max_err": 0.5712376236915588,
+      "status": "OK",
+      "seconds": 0.00037523904367655264,
+      "best_seconds": 0.00037494524787454046,
+      "spread": 0.026150828408852387,
+      "iters": 119,
+      "metrics": {
+        "TFLOP/s": 45.78379961656828,
+        "GB/s": 134.1322254391649
+      },
+      "speedup_vs_baseline": 5.236849264385565,
+      "vs_torch": 0.37753019790027376,
+      "torch_seconds": 0.00014166407041911838
+    },
+    {
+      "op": "sgemm",
+      "shape": "2048^3",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048
+      },
+      "variant": "v5_mfma",
+      "summary": "same blocking, v_mfma_f32_16x16x4_f32 matrix cores",
+      "origin": "(CDNA4 answer to the repo's SASS-tuning chapter)",
+      "max_err": 0.5712376236915588,
+      "status": "OK",
+      "seconds": 0.0002581277078027883,
+      "best_seconds": 0.0002580753136734936,
+      "spread": 0.0058421771995631235,
+      "iters": 181,
+      "metrics": {
+        "TFLOP/s": 66.5556957454779,
+        "GB/s": 194.98738987932978
+      },
+      "speedup_vs_baseline": 7.612783325638283,
+      "vs_torch": 0.5488138860604259,
+      "torch_seconds": 0.00014166407041911838
+    },
+    {
+      "op": "sgemm",
+      "shape": "4096^3",
+      "params": {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096
+      },
+      "variant": "v0_naive",
+      "summary": "one thread per C element, all operands from global",
+      "origin": "(baseline; the CUDA repo starts at v1)",
+      "max_err": 15.717595100402832,
+      "status": "OK",
+      "seconds": 0.01690436299641927,
+      "best_seconds": 0.01676658630371094,
+      "spread": 0.012539743098684506,
+      "iters": 3,
+      "metrics": {
+        "TFLOP/s": 8.130383469706176,
+        "GB/s": 11.909741410702408
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.060012012594825796,
+      "torch_seconds": 0.0010144648450486203
+    },
+    {
+      "op": "sgemm",
+      "shape": "4096^3",
+      "params": {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096
+      },
+      "variant": "v1_lds_tile",
+      "summary": "16x16x16 LDS tile, 1 C element per thread",
+      "origin": "(blocking level 1)",
+      "max_err": 15.717595100402832,
+      "status": "OK",
+      "seconds": 0.009894166564941406,
+      "best_seconds": 0.009853837585449218,
+      "spread": 0.010493595164029416,
+      "iters": 5,
+      "metrics": {
+        "TFLOP/s": 13.890907593874122,
+        "GB/s": 20.348009170714047
+      },
+      "speedup_vs_baseline": 1.7085181339393976,
+      "vs_torch": 0.1025316117724594,
+      "torch_seconds": 0.0010144648450486203
+    },
+    {
+      "op": "sgemm",
+      "shape": "4096^3",
+      "params": {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096
+      },
+      "variant": "v2_thread_tile",
+      "summary": "128x128x8 tile, 8x8 per thread, float4 + LDS",
+      "origin": "sgemm/sgemm_v1.cu",
+      "max_err": 18.980695724487305,
+      "status": "OK",
+      "seconds": 0.0020000473369251597,
+      "best_seconds": 0.0019949018304998224,
+      "spread": 0.007869880981661232,
+      "iters": 22,
+      "metrics": {
+        "TFLOP/s": 68.71785029013185,
+        "GB/s": 100.66091351093532
+      },
+      "speedup_vs_baseline": 8.451981452802894,
+      "vs_torch": 0.5072204173968413,
+      "torch_seconds": 0.0010144648450486203
+    },
+    {
+      "op": "sgemm",
+      "shape": "4096^3",
+      "params": {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096
+      },
+      "variant": "v3_prefetch",
+      "summary": "v2 + next-tile global prefetch into registers",
+      "origin": "sgemm/sgemm_v3.cu",
+      "max_err": 18.980695724487305,
+      "status": "OK",
+      "seconds": 0.0019966399452903054,
+      "best_seconds": 0.0019907181479714136,
+      "spread": 0.009149143227443706,
+      "iters": 22,
+      "metrics": {
+        "TFLOP/s": 68.83512162330139,
+        "GB/s": 100.83269769038289
+      },
+      "speedup_vs_baseline": 8.466405290695226,
+      "vs_torch": 0.5080860209381017,
+      "torch_seconds": 0.0010144648450486203
+    },
+    {
+      "op": "sgemm",
+      "shape": "4096^3",
+      "params": {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096
+      },
+      "variant": "v4_double_buffer",
+      "summary": "v3 + LDS ping-pong: one barrier per K-tile",
+      "origin": "sgemm/sgemm_v3.cu (ENABLE_DOUBLE_BUFFER)",
+      "max_err": 18.980695724487305,
+      "status": "OK",
+      "seconds": 0.002005809263749556,
+      "best_seconds": 0.0019880672801624645,
+      "spread": 0.016813166227503704,
+      "iters": 22,
+      "metrics": {
+        "TFLOP/s": 68.52045005270278,
+        "GB/s": 100.37175300688885
+      },
+      "speedup_vs_baseline": 8.42770212598337,
+      "vs_torch": 0.5057633661299541,
+      "torch_seconds": 0.0010144648450486203
+    },
+    {
+      "op": "sgemm",
+      "shape": "4096^3",
+      "params": {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096
+      },
+      "variant": "v5_mfma",
+      "summary": "same blocking, v_mfma_f32_16x16x4_f32 matrix cores",
+      "origin": "(CDNA4 answer to the repo's SASS-tuning chapter)",
+      "max_err": 18.980695724487305,
+      "status": "OK",
+      "seconds": 0.0012140622668796114,
+      "best_seconds": 0.0012007710138956706,
+      "spread": 0.019664181765226333,
+      "iters": 36,
+      "metrics": {
+        "TFLOP/s": 113.2058521390721,
+        "GB/s": 165.82888496934393
+      },
+      "speedup_vs_baseline": 13.923802310294136,
+      "vs_torch": 0.8355953996132363,
+      "torch_seconds": 0.0010144648450486203
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 32 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "uniform"
+      },
+      "variant": "v0_thread_per_row",
+      "summary": "1 lane per row (the classic scalar CSR kernel)",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=1)",
+      "max_err": 0.125,
+      "status": "OK",
+      "seconds": 0.0013112653783849768,
+      "best_seconds": 0.0013091151263262776,
+      "spread": 0.004772065150054535,
+      "iters": 37,
+      "metrics": {
+        "GFLOP/s": 51.178705017480745,
+        "GB/s": 307.07223010488445
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 2.331916702579223,
+      "torch_seconds": 0.003057761637369792
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 32 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "uniform"
+      },
+      "variant": "v1_4_lanes",
+      "summary": "4 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=4)",
+      "max_err": 0.25,
+      "status": "OK",
+      "seconds": 0.0004705317179361979,
+      "best_seconds": 0.0004702681041899181,
+      "spread": 0.0007942744908251364,
+      "iters": 105,
+      "metrics": {
+        "GFLOP/s": 142.62346499051458,
+        "GB/s": 855.7407899430874
+      },
+      "speedup_vs_baseline": 2.786773618867451,
+      "vs_torch": 6.498523948144153,
+      "torch_seconds": 0.003057761637369792
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 32 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "uniform"
+      },
+      "variant": "v2_8_lanes",
+      "summary": "8 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=8)",
+      "max_err": 0.0,
+      "status": "OK",
+      "seconds": 0.0002630534044561539,
+      "best_seconds": 0.0002630089132543554,
+      "spread": 0.0032672820001235577,
+      "iters": 187,
+      "metrics": {
+        "GFLOP/s": 255.11497993627296,
+        "GB/s": 1530.6898796176376
+      },
+      "speedup_vs_baseline": 4.984787712958645,
+      "vs_torch": 11.624109726659947,
+      "torch_seconds": 0.003057761637369792
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 32 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "uniform"
+      },
+      "variant": "v3_16_lanes",
+      "summary": "16 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=16)",
+      "max_err": 0.013698630034923553,
+      "status": "OK",
+      "seconds": 0.0002172257781568156,
+      "best_seconds": 0.00021708296003384827,
+      "spread": 0.010652759854808114,
+      "iters": 221,
+      "metrics": {
+        "GFLOP/s": 308.9360046004946,
+        "GB/s": 1853.6160276029675
+      },
+      "speedup_vs_baseline": 6.036416992086328,
+      "vs_torch": 14.07642160757914,
+      "torch_seconds": 0.003057761637369792
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 32 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "uniform"
+      },
+      "variant": "v4_wave_per_row",
+      "summary": "a full 64-lane wavefront per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=32 on CUDA)",
+      "max_err": 0.013698630034923553,
+      "status": "OK",
+      "seconds": 0.00028460531795726106,
+      "best_seconds": 0.00028448295593261715,
+      "spread": 0.009381952061642227,
+      "iters": 170,
+      "metrics": {
+        "GFLOP/s": 235.7962404977889,
+        "GB/s": 1414.7774429867334
+      },
+      "speedup_vs_baseline": 4.6073115843249575,
+      "vs_torch": 10.74386683747411,
+      "torch_seconds": 0.003057761637369792
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 8 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 8,
+        "pattern": "uniform"
+      },
+      "variant": "v0_thread_per_row",
+      "summary": "1 lane per row (the classic scalar CSR kernel)",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=1)",
+      "max_err": 0.012019230984151363,
+      "status": "OK",
+      "seconds": 0.00010438016063451251,
+      "best_seconds": 0.00010428391985965342,
+      "spread": 0.0021645132698587,
+      "iters": 463,
+      "metrics": {
+        "GFLOP/s": 160.73184691433343,
+        "GB/s": 964.3910814860008
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 26.33413814505623,
+      "torch_seconds": 0.0027487615697524125
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 8 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 8,
+        "pattern": "uniform"
+      },
+      "variant": "v1_4_lanes",
+      "summary": "4 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=4)",
+      "max_err": 0.004683840554207563,
+      "status": "OK",
+      "seconds": 5.437597080513284e-05,
+      "best_seconds": 5.437397956848145e-05,
+      "spread": 0.007745369849732924,
+      "iters": 864,
+      "metrics": {
+        "GFLOP/s": 308.54099249325606,
+        "GB/s": 1851.2459549595362
+      },
+      "speedup_vs_baseline": 1.919600865768074,
+      "vs_torch": 50.551034382506,
+      "torch_seconds": 0.0027487615697524125
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 8 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 8,
+        "pattern": "uniform"
+      },
+      "variant": "v2_8_lanes",
+      "summary": "8 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=8)",
+      "max_err": 0.004683840554207563,
+      "status": "OK",
+      "seconds": 5.361731956745016e-05,
+      "best_seconds": 5.360224055147719e-05,
+      "spread": 0.011502873387678048,
+      "iters": 870,
+      "metrics": {
+        "GFLOP/s": 312.90665283807033,
+        "GB/s": 1877.4399170284219
+      },
+      "speedup_vs_baseline": 1.946762006690825,
+      "vs_torch": 51.266299619743066,
+      "torch_seconds": 0.0027487615697524125
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 8 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 8,
+        "pattern": "uniform"
+      },
+      "variant": "v3_16_lanes",
+      "summary": "16 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=16)",
+      "max_err": 0.004683840554207563,
+      "status": "OK",
+      "seconds": 6.797789978466445e-05,
+      "best_seconds": 6.796839322975213e-05,
+      "spread": 0.008687676823202302,
+      "iters": 695,
+      "metrics": {
+        "GFLOP/s": 246.8039767798898,
+        "GB/s": 1480.8238606793386
+      },
+      "speedup_vs_baseline": 1.5355014050913687,
+      "vs_torch": 40.43610612360405,
+      "torch_seconds": 0.0027487615697524125
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, 8 nnz/row",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 8,
+        "pattern": "uniform"
+      },
+      "variant": "v4_wave_per_row",
+      "summary": "a full 64-lane wavefront per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=32 on CUDA)",
+      "max_err": 0.004683840554207563,
+      "status": "OK",
+      "seconds": 0.0001979882173023778,
+      "best_seconds": 0.00019792961975350913,
+      "spread": 0.0011418070467611955,
+      "iters": 241,
+      "metrics": {
+        "GFLOP/s": 84.73845680612888,
+        "GB/s": 508.43074083677334
+      },
+      "speedup_vs_baseline": 0.5272039016094466,
+      "vs_torch": 13.883460375595797,
+      "torch_seconds": 0.0027487615697524125
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, skewed",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "skewed"
+      },
+      "variant": "v0_thread_per_row",
+      "summary": "1 lane per row (the classic scalar CSR kernel)",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=1)",
+      "max_err": 0.12121212482452393,
+      "status": "OK",
+      "seconds": 0.013178794860839844,
+      "best_seconds": 0.012951098124186197,
+      "spread": 0.03552421570120151,
+      "iters": 3,
+      "metrics": {
+        "GFLOP/s": 5.0921851890578225,
+        "GB/s": 30.553111134346935
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.29264278876203587,
+      "torch_seconds": 0.0038566792805989586
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, skewed",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "skewed"
+      },
+      "variant": "v1_4_lanes",
+      "summary": "4 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=4)",
+      "max_err": 0.006493506487458944,
+      "status": "OK",
+      "seconds": 0.0051133986579047315,
+      "best_seconds": 0.005068904876708985,
+      "spread": 0.024796210152485513,
+      "iters": 9,
+      "metrics": {
+        "GFLOP/s": 13.124121252751797,
+        "GB/s": 78.74472751651078
+      },
+      "speedup_vs_baseline": 2.577306355816191,
+      "vs_torch": 0.75423011946017,
+      "torch_seconds": 0.0038566792805989586
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, skewed",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "skewed"
+      },
+      "variant": "v2_8_lanes",
+      "summary": "8 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=8)",
+      "max_err": 0.3030303120613098,
+      "status": "OK",
+      "seconds": 0.003557902472359793,
+      "best_seconds": 0.0035390565054757256,
+      "spread": 0.008463450174722546,
+      "iters": 14,
+      "metrics": {
+        "GFLOP/s": 18.86191780728879,
+        "GB/s": 113.17150684373274
+      },
+      "speedup_vs_baseline": 3.704091093902008,
+      "vs_torch": 1.0839755475481037,
+      "torch_seconds": 0.0038566792805989586
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, skewed",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "skewed"
+      },
+      "variant": "v3_16_lanes",
+      "summary": "16 lanes per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=16)",
+      "max_err": 0.03030303120613098,
+      "status": "OK",
+      "seconds": 0.0022632023039318265,
+      "best_seconds": 0.0022603509085518973,
+      "spread": 0.003489369878745415,
+      "iters": 21,
+      "metrics": {
+        "GFLOP/s": 29.652172005751673,
+        "GB/s": 177.91303203451005
+      },
+      "speedup_vs_baseline": 5.8230741626343026,
+      "vs_torch": 1.704080662121459,
+      "torch_seconds": 0.0038566792805989586
+    },
+    {
+      "op": "spmv",
+      "shape": "1M rows, skewed",
+      "params": {
+        "rows": 1048576,
+        "cols": 1048576,
+        "nnz_per_row": 32,
+        "pattern": "skewed"
+      },
+      "variant": "v4_wave_per_row",
+      "summary": "a full 64-lane wavefront per row",
+      "origin": "spmv/spmv.cu (THREADS_PER_VECTOR=32 on CUDA)",
+      "max_err": 0.06060606241226196,
+      "status": "OK",
+      "seconds": 0.0009592020371380974,
+      "best_seconds": 0.0009581188875086167,
+      "spread": 0.0020499220907957776,
+      "iters": 51,
+      "metrics": {
+        "GFLOP/s": 69.96322088746592,
+        "GB/s": 419.77932532479554
+      },
+      "speedup_vs_baseline": 13.73933160125522,
+      "vs_torch": 4.020716315517695,
+      "torch_seconds": 0.0038566792805989586
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, 32nnz, n=256",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 256,
+        "pattern": "uniform"
+      },
+      "variant": "v0_scalar",
+      "summary": "1 output column per thread, scalar B loads",
+      "origin": "spmm/spmm.cu:My_spmm_csr_vector_kernel_v0",
+      "max_err": 0.01367773674428463,
+      "status": "OK",
+      "seconds": 2.7804044119437735e-05,
+      "best_seconds": 2.777349562419026e-05,
+      "spread": 0.003286369636308751,
+      "iters": 1604,
+      "metrics": {
+        "GFLOP/s": 2413.636797284621,
+        "GB/s": 4978.125894399531
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 4.6246334918461125,
+      "torch_seconds": 0.0001285835136435187
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, 32nnz, n=256",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 256,
+        "pattern": "uniform"
+      },
+      "variant": "v1_lds_row",
+      "summary": "stage the row's (col,val) pairs in LDS first",
+      "origin": "spmm/spmm.cu:My_spmm_csr_vector_kernel_v1",
+      "max_err": 0.01367773674428463,
+      "status": "OK",
+      "seconds": 3.836896799612736e-05,
+      "best_seconds": 3.816258734551029e-05,
+      "spread": 0.06362799746799574,
+      "iters": 1104,
+      "metrics": {
+        "GFLOP/s": 1749.0401098818554,
+        "GB/s": 3607.395226631327
+      },
+      "speedup_vs_baseline": 0.724649256196936,
+      "vs_torch": 3.3512372200497245,
+      "torch_seconds": 0.0001285835136435187
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, 32nnz, n=256",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 256,
+        "pattern": "uniform"
+      },
+      "variant": "v2_vec4",
+      "summary": "4 output columns per thread, float4 B loads",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.01367773674428463,
+      "status": "OK",
+      "seconds": 1.6086666107177735e-05,
+      "best_seconds": 1.6080726623535157e-05,
+      "spread": 0.0041835199855443945,
+      "iters": 2000,
+      "metrics": {
+        "GFLOP/s": 4171.707397473526,
+        "GB/s": 8604.146507289146
+      },
+      "speedup_vs_baseline": 1.7283907016029756,
+      "vs_torch": 7.993173525628522,
+      "torch_seconds": 0.0001285835136435187
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, 32nnz, n=1024",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 1024,
+        "pattern": "uniform"
+      },
+      "variant": "v0_scalar",
+      "summary": "1 output column per thread, scalar B loads",
+      "origin": "spmm/spmm.cu:My_spmm_csr_vector_kernel_v0",
+      "max_err": 0.5492374897003174,
+      "status": "OK",
+      "seconds": 0.000104039555102323,
+      "best_seconds": 0.00010396283073762876,
+      "spread": 0.0022584370359987364,
+      "iters": 452,
+      "metrics": {
+        "GFLOP/s": 2580.1288340381066,
+        "GB/s": 5321.515720203594
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 3.7916112810369187,
+      "torch_seconds": 0.00039447755080003
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, 32nnz, n=1024",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 1024,
+        "pattern": "uniform"
+      },
+      "variant": "v1_lds_row",
+      "summary": "stage the row's (col,val) pairs in LDS first",
+      "origin": "spmm/spmm.cu:My_spmm_csr_vector_kernel_v1",
+      "max_err": 0.5492374897003174,
+      "status": "OK",
+      "seconds": 0.0001456177250031502,
+      "best_seconds": 0.00014305357163952242,
+      "spread": 0.045560376866765305,
+      "iters": 310,
+      "metrics": {
+        "GFLOP/s": 1843.4256955613946,
+        "GB/s": 3802.065497095376
+      },
+      "speedup_vs_baseline": 0.7144704059898772,
+      "vs_torch": 2.7089940513182453,
+      "torch_seconds": 0.00039447755080003
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, 32nnz, n=1024",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 1024,
+        "pattern": "uniform"
+      },
+      "variant": "v2_vec4",
+      "summary": "4 output columns per thread, float4 B loads",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.5492374897003174,
+      "status": "OK",
+      "seconds": 4.3233442076162445e-05,
+      "best_seconds": 4.3208010761058274e-05,
+      "spread": 0.051780230205209554,
+      "iters": 1035,
+      "metrics": {
+        "GFLOP/s": 6208.97719702977,
+        "GB/s": 12806.0154688739
+      },
+      "speedup_vs_baseline": 2.406460140717945,
+      "vs_torch": 9.124361416911851,
+      "torch_seconds": 0.00039447755080003
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, skewed, n=256",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 256,
+        "pattern": "skewed"
+      },
+      "variant": "v0_scalar",
+      "summary": "1 output column per thread, scalar B loads",
+      "origin": "spmm/spmm.cu:My_spmm_csr_vector_kernel_v0",
+      "max_err": 0.024880727753043175,
+      "status": "OK",
+      "seconds": 0.0008147523880004883,
+      "best_seconds": 0.0008131523768107097,
+      "spread": 0.006904437451048295,
+      "iters": 60,
+      "metrics": {
+        "GFLOP/s": 82.36718908513316,
+        "GB/s": 169.88232748808716
+      },
+      "speedup_vs_baseline": 1.0,
+      "vs_torch": 0.46205656669693135,
+      "torch_seconds": 0.0003764616911076317
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, skewed, n=256",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 256,
+        "pattern": "skewed"
+      },
+      "variant": "v1_lds_row",
+      "summary": "stage the row's (col,val) pairs in LDS first",
+      "origin": "spmm/spmm.cu:My_spmm_csr_vector_kernel_v1",
+      "max_err": 0.024880727753043175,
+      "status": "OK",
+      "seconds": 0.00017903554394897004,
+      "best_seconds": 0.0001789381763015347,
+      "spread": 0.002193177059127037,
+      "iters": 267,
+      "metrics": {
+        "GFLOP/s": 374.8354238481708,
+        "GB/s": 773.0980616868522
+      },
+      "speedup_vs_baseline": 4.55078567098785,
+      "vs_torch": 2.102720402910237,
+      "torch_seconds": 0.0003764616911076317
+    },
+    {
+      "op": "spmm",
+      "shape": "4096x4096, skewed, n=256",
+      "params": {
+        "rows": 4096,
+        "cols": 4096,
+        "nnz_per_row": 32,
+        "ncols": 256,
+        "pattern": "skewed"
+      },
+      "variant": "v2_vec4",
+      "summary": "4 output columns per thread, float4 B loads",
+      "origin": "(CDNA4 addition, no CUDA counterpart)",
+      "max_err": 0.024880727753043175,
+      "status": "OK",
+      "seconds": 0.0007256552191341625,
+      "best_seconds": 0.0007252151825848747,
+      "spread": 0.0007449337201485686,
+      "iters": 68,
+      "metrics": {
+        "GFLOP/s": 92.48037116038796,
+        "GB/s": 190.74076551830015
+      },
+      "speedup_vs_baseline": 1.1227816827013726,
+      "vs_torch": 0.5187886494591997,
+      "torch_seconds": 0.0003764616911076317
+    }
+  ]
+}

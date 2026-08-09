@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="682" height="412" viewBox="0 0 682 412" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="682" height="412" fill="#fcfcfb"/>
+<text x="0" y="20" font-size="15" font-weight="600" fill="#0b0b0b">reduce: block-wise sum</text>
+<text x="0" y="38" font-size="11.5" fill="#52514e">achieved bandwidth per rung -- the ten-step ladder (GB/s)</text>
+<circle cx="4" cy="54" r="4" fill="#2a78d6"/>
+<text x="13" y="58" font-size="10.5" fill="#52514e">ported from the CUDA original</text>
+<circle cx="195.45" cy="54" r="4" fill="#eb6834"/>
+<text x="204.45" y="58" font-size="10.5" fill="#52514e">added for CDNA</text>
+<text x="0" y="78" font-size="12.5" font-weight="600" fill="#52514e">N=32M</text>
+<line x1="178.0" y1="88" x2="178.0" y2="358" stroke="#e1e0d9" stroke-width="1"/>
+<text x="178.0" y="373" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="88" x2="285.5" y2="358" stroke="#e1e0d9" stroke-width="1"/>
+<text x="285.5" y="373" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">2,000</text>
+<line x1="393.0" y1="88" x2="393.0" y2="358" stroke="#e1e0d9" stroke-width="1"/>
+<text x="393.0" y="373" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">4,000</text>
+<line x1="500.5" y1="88" x2="500.5" y2="358" stroke="#e1e0d9" stroke-width="1"/>
+<text x="500.5" y="373" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">6,000</text>
+<line x1="608.0" y1="88" x2="608.0" y2="358" stroke="#e1e0d9" stroke-width="1"/>
+<text x="608.0" y="373" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">8,000</text>
+<line x1="178" y1="88" x2="178" y2="358" stroke="#c3c2b7" stroke-width="1"/>
+<path d="M178 88 H265.6 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="101.0" font-size="11" text-anchor="end" fill="#52514e">v0_baseline</text>
+<text x="276.6" y="101.0" font-size="11" font-weight="400" fill="#52514e" style="font-variant-numeric:tabular-nums">1,704</text>
+<path d="M178 116 H267.7 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="129.0" font-size="11" text-anchor="end" fill="#52514e">v1_no_divergence</text>
+<path d="M178 144 H277.5 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="157.0" font-size="11" text-anchor="end" fill="#52514e">v2_no_bank_conflict</text>
+<path d="M178 172 H368.8 a4.0 4.0 0 0 1 4.0 4.0 V186.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="185.0" font-size="11" text-anchor="end" fill="#52514e">v3_add_during_load</text>
+<path d="M178 200 H389.6 a4.0 4.0 0 0 1 4.0 4.0 V214.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="213.0" font-size="11" text-anchor="end" fill="#52514e">v4_unroll_last_wave</text>
+<path d="M178 228 H389.9 a4.0 4.0 0 0 1 4.0 4.0 V242.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="241.0" font-size="11" text-anchor="end" fill="#52514e">v5_full_unroll</text>
+<path d="M178 256 H542.0 a4.0 4.0 0 0 1 4.0 4.0 V270.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="269.0" font-size="11" text-anchor="end" fill="#52514e">v6_multi_add</text>
+<path d="M178 284 H546.3 a4.0 4.0 0 0 1 4.0 4.0 V298.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="297.0" font-size="11" text-anchor="end" fill="#52514e">v7_shuffle</text>
+<text x="557.3" y="297.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">6,926</text>
+<path d="M178 312 H542.2 a4.0 4.0 0 0 1 4.0 4.0 V326.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#eb6834"/>
+<text x="169" y="325.0" font-size="11" text-anchor="end" fill="#52514e">v8_shuffle_vec4</text>
+<path d="M178 340 H540.2 a4.0 4.0 0 0 1 4.0 4.0 V354.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#eb6834"/>
+<text x="169" y="353.0" font-size="11" text-anchor="end" fill="#52514e">v9_vec4_wide_grid</text>
+<line x1="358.0" y1="83" x2="358.0" y2="361" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="363.0" y="79" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 700 420" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="700" height="420" fill="#fcfcfb"/>
+<text x="0" y="20" font-size="15" font-weight="600" fill="#0b0b0b">Roofline: where each ladder tops out</text>
+<text x="0" y="38" font-size="11.5" fill="#52514e">best rung per ladder, MI350X. On a roof = at that resource's limit; above the HBM roof = served from cache.</text>
+<line x1="62.0" y1="64" x2="62.0" y2="374" stroke="#e1e0d9" stroke-width="1"/>
+<text x="62.0" y="390" font-size="10.5" text-anchor="middle" fill="#898781">0.01</text>
+<line x1="143.3" y1="64" x2="143.3" y2="374" stroke="#e1e0d9" stroke-width="1"/>
+<text x="143.3" y="390" font-size="10.5" text-anchor="middle" fill="#898781">0.1</text>
+<line x1="224.7" y1="64" x2="224.7" y2="374" stroke="#e1e0d9" stroke-width="1"/>
+<text x="224.7" y="390" font-size="10.5" text-anchor="middle" fill="#898781">1</text>
+<line x1="306.0" y1="64" x2="306.0" y2="374" stroke="#e1e0d9" stroke-width="1"/>
+<text x="306.0" y="390" font-size="10.5" text-anchor="middle" fill="#898781">10</text>
+<line x1="387.3" y1="64" x2="387.3" y2="374" stroke="#e1e0d9" stroke-width="1"/>
+<text x="387.3" y="390" font-size="10.5" text-anchor="middle" fill="#898781">100</text>
+<line x1="468.7" y1="64" x2="468.7" y2="374" stroke="#e1e0d9" stroke-width="1"/>
+<text x="468.7" y="390" font-size="10.5" text-anchor="middle" fill="#898781">1000</text>
+<line x1="550.0" y1="64" x2="550.0" y2="374" stroke="#e1e0d9" stroke-width="1"/>
+<text x="550.0" y="390" font-size="10.5" text-anchor="middle" fill="#898781">10000</text>
+<line x1="62" y1="374.0" x2="550" y2="374.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="54" y="378.0" font-size="10.5" text-anchor="end" fill="#898781">100</text>
+<line x1="62" y1="281.8" x2="550" y2="281.8" stroke="#e1e0d9" stroke-width="1"/>
+<text x="54" y="285.8" font-size="10.5" text-anchor="end" fill="#898781">1000</text>
+<line x1="62" y1="189.6" x2="550" y2="189.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="54" y="193.6" font-size="10.5" text-anchor="end" fill="#898781">10000</text>
+<line x1="62" y1="97.5" x2="550" y2="97.5" stroke="#e1e0d9" stroke-width="1"/>
+<text x="54" y="101.5" font-size="10.5" text-anchor="end" fill="#898781">100000</text>
+<path d="M62.0 382.9 L326.8 82.8 L550.0 82.8" fill="none" stroke="#52514e" stroke-width="2" stroke-linejoin="round"/>
+<text x="556" y="86.8" font-size="10.5" fill="#52514e">FP32 matrix core roof</text>
+<path d="M62.0 382.9 L302.3 110.6 L550.0 110.6" fill="none" stroke="#52514e" stroke-width="2" stroke-linejoin="round"/>
+<text x="556" y="114.6" font-size="10.5" fill="#52514e">FP32 vector roof</text>
+<text x="206.6" y="210.0" font-size="10.5" fill="#52514e" transform="rotate(-31 206.6 210.0)">HBM 8 TB/s</text>
+<circle cx="136.9" cy="310.9" r="6.5" fill="#fcfcfb"/>
+<circle cx="136.9" cy="310.9" r="4.5" fill="#2a78d6"/>
+<text x="146.9" y="314.9" font-size="11" fill="#0b0b0b">elementwise</text>
+<circle cx="175.7" cy="259.8" r="6.5" fill="#fcfcfb"/>
+<circle cx="175.7" cy="259.8" r="4.5" fill="#2a78d6"/>
+<text x="185.7" y="263.8" font-size="11" fill="#0b0b0b">reduce</text>
+<circle cx="200.2" cy="229.4" r="6.5" fill="#fcfcfb"/>
+<circle cx="200.2" cy="229.4" r="4.5" fill="#2a78d6"/>
+<text x="210.2" y="233.4" font-size="11" fill="#0b0b0b">sgemv</text>
+<circle cx="455.2" cy="92.5" r="6.5" fill="#fcfcfb"/>
+<circle cx="455.2" cy="92.5" r="4.5" fill="#2a78d6"/>
+<text x="465.2" y="96.5" font-size="11" fill="#0b0b0b">sgemm</text>
+<circle cx="161.4" cy="328.8" r="6.5" fill="#fcfcfb"/>
+<circle cx="161.4" cy="328.8" r="4.5" fill="#2a78d6"/>
+<text x="171.4" y="332.8" font-size="11" fill="#0b0b0b">spmv</text>
+<circle cx="199.1" cy="208.7" r="6.5" fill="#fcfcfb"/>
+<circle cx="199.1" cy="208.7" r="4.5" fill="#2a78d6"/>
+<text x="209.1" y="212.7" font-size="11" fill="#0b0b0b">spmm</text>
+<text x="306" y="412" font-size="11" text-anchor="middle" fill="#52514e">arithmetic intensity (FLOP / byte of HBM traffic)</text>
+<text x="14" y="219" font-size="11" text-anchor="middle" fill="#52514e" transform="rotate(-90 14 219)">achieved GFLOP/s</text>
+</svg>

@@ -37,6 +37,11 @@ barrier-synchronised passes that the whole workgroup advances through together.
 "Useless" was measured on balanced matrices; it does not survive contact with a
 real graph.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/spmm-dark.svg">
+  <img alt="spmm ladder: throughput per rung, three problem shapes" src="../figure/spmm-light.svg">
+</picture>
+
 ## Results
 
 > Measured on an AMD Instinct MI350X VF (gfx950, wave64), 256 CU @ 2.2 GHz,

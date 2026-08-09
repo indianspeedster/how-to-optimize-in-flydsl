@@ -46,6 +46,27 @@ Or `make list` / `make bench` / `make test`.
 
 ---
 
+## Where the ladders end up
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figure/roofline-dark.svg">
+  <img alt="Roofline: each ladder's best rung against the HBM, FP32 vector and FP32 matrix roofs" src="figure/roofline-light.svg">
+</picture>
+
+Each point is one ladder's best rung. A point **on** a roof is at that
+resource's limit and no amount of further tuning moves it -- `elementwise` and
+`reduce` sit on the HBM diagonal, which is why their last rungs stopped paying.
+`spmv` sits well **below** it: the gather into `x` is latency-bound, not
+bandwidth-bound, so it never gets to spend the bandwidth it has. `sgemm` is the
+only compute-bound ladder, and it sits between the two compute roofs -- past the
+vector pipe, short of the matrix cores.
+
+`spmm` plots **above** the HBM roof, which is not an error: its arithmetic
+intensity is computed against *logical* traffic, and the dense operand `B` is
+re-read enough times to be served largely from cache rather than HBM.
+
+---
+
 ## The ladders
 
 Each folder is a chapter. Follow the link for the rung-by-rung table, what

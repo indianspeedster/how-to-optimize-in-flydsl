@@ -3,7 +3,7 @@
 PY ?= /root/flydsl-wgrad-ragged/.venv/bin/python
 export PYTHONPATH := $(CURDIR)
 
-.PHONY: test bench bench-json list clean
+.PHONY: test bench bench-json figures list clean
 
 test:                     ## correctness for every variant at its smallest shape
 	$(PY) -m pytest tests -q
@@ -14,6 +14,9 @@ bench:                    ## the whole ladder, every op, every shape
 bench-json:               ## same, and write results/bench.json
 	@mkdir -p results
 	$(PY) -m bench --json results/bench.json
+
+figures:                  ## redraw figure/*.svg from results/bench.json
+	$(PY) docs/make_figures.py
 
 list:                     ## show every op and its rungs
 	$(PY) -m bench --list

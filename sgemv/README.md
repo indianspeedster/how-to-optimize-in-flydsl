@@ -31,6 +31,11 @@ than rocBLAS at every shape tested.
   wavefront per row leaves the machine underfilled at small M; a whole 256-thread
   workgroup per row, finished with an LDS block reduction, keeps every CU busy.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/sgemv-dark.svg">
+  <img alt="sgemv ladder: achieved bandwidth per rung, three matrix shapes" src="../figure/sgemv-light.svg">
+</picture>
+
 ## Results
 
 > Measured on an AMD Instinct MI350X VF (gfx950, wave64), 256 CU @ 2.2 GHz,

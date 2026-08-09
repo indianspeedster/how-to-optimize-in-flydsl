@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="682" height="640" viewBox="0 0 682 640" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="682" height="640" fill="#fcfcfb"/>
+<text x="0" y="20" font-size="15" font-weight="600" fill="#0b0b0b">spmv: y = A_csr x</text>
+<text x="0" y="38" font-size="11.5" fill="#52514e">throughput as the lanes-per-row knob is swept (GFLOP/s)</text>
+<circle cx="4" cy="54" r="4" fill="#2a78d6"/>
+<text x="13" y="58" font-size="10.5" fill="#52514e">ported from the CUDA original</text>
+<circle cx="195.45" cy="54" r="4" fill="#eb6834"/>
+<text x="204.45" y="58" font-size="10.5" fill="#52514e">added for CDNA</text>
+<text x="0" y="78" font-size="12.5" font-weight="600" fill="#52514e">1M rows, 32 nnz/row</text>
+<line x1="178.0" y1="88" x2="178.0" y2="218" stroke="#e1e0d9" stroke-width="1"/>
+<text x="178.0" y="233" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="88" x2="285.5" y2="218" stroke="#e1e0d9" stroke-width="1"/>
+<text x="285.5" y="233" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
+<line x1="393.0" y1="88" x2="393.0" y2="218" stroke="#e1e0d9" stroke-width="1"/>
+<text x="393.0" y="233" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">200</text>
+<line x1="500.5" y1="88" x2="500.5" y2="218" stroke="#e1e0d9" stroke-width="1"/>
+<text x="500.5" y="233" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">300</text>
+<line x1="608.0" y1="88" x2="608.0" y2="218" stroke="#e1e0d9" stroke-width="1"/>
+<text x="608.0" y="233" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">400</text>
+<line x1="178" y1="88" x2="178" y2="218" stroke="#c3c2b7" stroke-width="1"/>
+<path d="M178 88 H229.0 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="101.0" font-size="11" text-anchor="end" fill="#52514e">v0_thread_per_row</text>
+<text x="240.0" y="101.0" font-size="11" font-weight="400" fill="#52514e" style="font-variant-numeric:tabular-nums">51.2</text>
+<path d="M178 116 H327.3 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="129.0" font-size="11" text-anchor="end" fill="#52514e">v1_4_lanes</text>
+<path d="M178 144 H448.2 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="157.0" font-size="11" text-anchor="end" fill="#52514e">v2_8_lanes</text>
+<path d="M178 172 H506.1 a4.0 4.0 0 0 1 4.0 4.0 V186.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="185.0" font-size="11" text-anchor="end" fill="#52514e">v3_16_lanes</text>
+<text x="517.1" y="185.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">309</text>
+<path d="M178 200 H427.5 a4.0 4.0 0 0 1 4.0 4.0 V214.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="213.0" font-size="11" text-anchor="end" fill="#52514e">v4_wave_per_row</text>
+<line x1="201.6" y1="83" x2="201.6" y2="221" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="206.6" y="79" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+<text x="0" y="262" font-size="12.5" font-weight="600" fill="#52514e">1M rows, 8 nnz/row</text>
+<line x1="178.0" y1="272" x2="178.0" y2="402" stroke="#e1e0d9" stroke-width="1"/>
+<text x="178.0" y="417" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="272" x2="285.5" y2="402" stroke="#e1e0d9" stroke-width="1"/>
+<text x="285.5" y="417" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
+<line x1="393.0" y1="272" x2="393.0" y2="402" stroke="#e1e0d9" stroke-width="1"/>
+<text x="393.0" y="417" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">200</text>
+<line x1="500.5" y1="272" x2="500.5" y2="402" stroke="#e1e0d9" stroke-width="1"/>
+<text x="500.5" y="417" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">300</text>
+<line x1="608.0" y1="272" x2="608.0" y2="402" stroke="#e1e0d9" stroke-width="1"/>
+<text x="608.0" y="417" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">400</text>
+<line x1="178" y1="272" x2="178" y2="402" stroke="#c3c2b7" stroke-width="1"/>
+<path d="M178 272 H346.8 a4.0 4.0 0 0 1 4.0 4.0 V286.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="285.0" font-size="11" text-anchor="end" fill="#52514e">v0_thread_per_row</text>
+<text x="357.8" y="285.0" font-size="11" font-weight="400" fill="#52514e" style="font-variant-numeric:tabular-nums">161</text>
+<path d="M178 300 H505.7 a4.0 4.0 0 0 1 4.0 4.0 V314.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="313.0" font-size="11" text-anchor="end" fill="#52514e">v1_4_lanes</text>
+<path d="M178 328 H510.4 a4.0 4.0 0 0 1 4.0 4.0 V342.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="341.0" font-size="11" text-anchor="end" fill="#52514e">v2_8_lanes</text>
+<text x="521.4" y="341.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">313</text>
+<path d="M178 356 H439.3 a4.0 4.0 0 0 1 4.0 4.0 V370.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="369.0" font-size="11" text-anchor="end" fill="#52514e">v3_16_lanes</text>
+<path d="M178 384 H265.1 a4.0 4.0 0 0 1 4.0 4.0 V398.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="397.0" font-size="11" text-anchor="end" fill="#52514e">v4_wave_per_row</text>
+<line x1="184.6" y1="267" x2="184.6" y2="405" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="189.6" y="263" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+<text x="0" y="446" font-size="12.5" font-weight="600" fill="#52514e">1M rows, skewed</text>
+<line x1="178.0" y1="456" x2="178.0" y2="586" stroke="#e1e0d9" stroke-width="1"/>
+<text x="178.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="456" x2="285.5" y2="586" stroke="#e1e0d9" stroke-width="1"/>
+<text x="285.5" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">20</text>
+<line x1="393.0" y1="456" x2="393.0" y2="586" stroke="#e1e0d9" stroke-width="1"/>
+<text x="393.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">40</text>
+<line x1="500.5" y1="456" x2="500.5" y2="586" stroke="#e1e0d9" stroke-width="1"/>
+<text x="500.5" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">60</text>
+<line x1="608.0" y1="456" x2="608.0" y2="586" stroke="#e1e0d9" stroke-width="1"/>
+<text x="608.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">80</text>
+<line x1="178" y1="456" x2="178" y2="586" stroke="#c3c2b7" stroke-width="1"/>
+<path d="M178 456 H201.4 a4.0 4.0 0 0 1 4.0 4.0 V470.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="469.0" font-size="11" text-anchor="end" fill="#52514e">v0_thread_per_row</text>
+<text x="212.4" y="469.0" font-size="11" font-weight="400" fill="#52514e" style="font-variant-numeric:tabular-nums">5.09</text>
+<path d="M178 484 H244.5 a4.0 4.0 0 0 1 4.0 4.0 V498.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="497.0" font-size="11" text-anchor="end" fill="#52514e">v1_4_lanes</text>
+<path d="M178 512 H275.4 a4.0 4.0 0 0 1 4.0 4.0 V526.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="525.0" font-size="11" text-anchor="end" fill="#52514e">v2_8_lanes</text>
+<path d="M178 540 H333.4 a4.0 4.0 0 0 1 4.0 4.0 V554.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="553.0" font-size="11" text-anchor="end" fill="#52514e">v3_16_lanes</text>
+<path d="M178 568 H550.1 a4.0 4.0 0 0 1 4.0 4.0 V582.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="581.0" font-size="11" text-anchor="end" fill="#52514e">v4_wave_per_row</text>
+<text x="561.1" y="581.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">70.0</text>
+<line x1="271.5" y1="451" x2="271.5" y2="589" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="276.5" y="447" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+</svg>

@@ -1,7 +1,9 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-results/
-*.json
-!docs/**/*.json
 .claude/
+
+# results/bench.json is tracked on purpose: it is the provenance for every
+# figure and every table in the READMEs, and docs/make_figures.py reads it.
+results/*
+!results/bench.json

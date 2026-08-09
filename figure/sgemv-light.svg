@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="682" height="388" viewBox="0 0 682 388" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="682" height="388" fill="#fcfcfb"/>
+<text x="0" y="20" font-size="15" font-weight="600" fill="#0b0b0b">sgemv: y = A x</text>
+<text x="0" y="38" font-size="11.5" fill="#52514e">achieved bandwidth per rung, by matrix shape (GB/s)</text>
+<circle cx="4" cy="54" r="4" fill="#2a78d6"/>
+<text x="13" y="58" font-size="10.5" fill="#52514e">ported from the CUDA original</text>
+<circle cx="195.45" cy="54" r="4" fill="#eb6834"/>
+<text x="204.45" y="58" font-size="10.5" fill="#52514e">added for CDNA</text>
+<text x="0" y="78" font-size="12.5" font-weight="600" fill="#52514e">M=16384,N=16</text>
+<line x1="178.0" y1="88" x2="178.0" y2="106" stroke="#e1e0d9" stroke-width="1"/>
+<text x="178.0" y="121" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="88" x2="285.5" y2="106" stroke="#e1e0d9" stroke-width="1"/>
+<text x="285.5" y="121" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
+<line x1="393.0" y1="88" x2="393.0" y2="106" stroke="#e1e0d9" stroke-width="1"/>
+<text x="393.0" y="121" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
+<line x1="500.5" y1="88" x2="500.5" y2="106" stroke="#e1e0d9" stroke-width="1"/>
+<text x="500.5" y="121" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">150</text>
+<line x1="608.0" y1="88" x2="608.0" y2="106" stroke="#e1e0d9" stroke-width="1"/>
+<text x="608.0" y="121" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">200</text>
+<line x1="178" y1="88" x2="178" y2="106" stroke="#c3c2b7" stroke-width="1"/>
+<path d="M178 88 H499.8 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="101.0" font-size="11" text-anchor="end" fill="#52514e">v2_subwave_per_row</text>
+<text x="510.8" y="101.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">152</text>
+<line x1="361.3" y1="83" x2="361.3" y2="109" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="366.3" y="79" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+<text x="0" y="150" font-size="12.5" font-weight="600" fill="#52514e">M=16384,N=256</text>
+<line x1="178.0" y1="160" x2="178.0" y2="206" stroke="#e1e0d9" stroke-width="1"/>
+<text x="178.0" y="221" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="321.3" y1="160" x2="321.3" y2="206" stroke="#e1e0d9" stroke-width="1"/>
+<text x="321.3" y="221" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">1,000</text>
+<line x1="464.7" y1="160" x2="464.7" y2="206" stroke="#e1e0d9" stroke-width="1"/>
+<text x="464.7" y="221" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">2,000</text>
+<line x1="608.0" y1="160" x2="608.0" y2="206" stroke="#e1e0d9" stroke-width="1"/>
+<text x="608.0" y="221" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">3,000</text>
+<line x1="178" y1="160" x2="178" y2="206" stroke="#c3c2b7" stroke-width="1"/>
+<path d="M178 160 H503.6 a4.0 4.0 0 0 1 4.0 4.0 V174.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="173.0" font-size="11" text-anchor="end" fill="#52514e">v0_wave_per_row</text>
+<text x="514.6" y="173.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">2,299</text>
+<path d="M178 188 H495.9 a4.0 4.0 0 0 1 4.0 4.0 V202.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="201.0" font-size="11" text-anchor="end" fill="#52514e">v1_wave_per_row_vec4</text>
+<line x1="352.2" y1="155" x2="352.2" y2="209" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="357.2" y="151" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+<text x="0" y="250" font-size="12.5" font-weight="600" fill="#52514e">M=16384,N=4096</text>
+<line x1="178.0" y1="260" x2="178.0" y2="334" stroke="#e1e0d9" stroke-width="1"/>
+<text x="178.0" y="349" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="260" x2="285.5" y2="334" stroke="#e1e0d9" stroke-width="1"/>
+<text x="285.5" y="349" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">2,000</text>
+<line x1="393.0" y1="260" x2="393.0" y2="334" stroke="#e1e0d9" stroke-width="1"/>
+<text x="393.0" y="349" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">4,000</text>
+<line x1="500.5" y1="260" x2="500.5" y2="334" stroke="#e1e0d9" stroke-width="1"/>
+<text x="500.5" y="349" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">6,000</text>
+<line x1="608.0" y1="260" x2="608.0" y2="334" stroke="#e1e0d9" stroke-width="1"/>
+<text x="608.0" y="349" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">8,000</text>
+<line x1="178" y1="260" x2="178" y2="334" stroke="#c3c2b7" stroke-width="1"/>
+<path d="M178 260 H563.7 a4.0 4.0 0 0 1 4.0 4.0 V274.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="273.0" font-size="11" text-anchor="end" fill="#52514e">v0_wave_per_row</text>
+<text x="574.7" y="273.0" font-size="11" font-weight="400" fill="#52514e" style="font-variant-numeric:tabular-nums">7,249</text>
+<path d="M178 288 H558.6 a4.0 4.0 0 0 1 4.0 4.0 V302.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="169" y="301.0" font-size="11" text-anchor="end" fill="#52514e">v1_wave_per_row_vec4</text>
+<path d="M178 316 H572.2 a4.0 4.0 0 0 1 4.0 4.0 V330.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#eb6834"/>
+<text x="169" y="329.0" font-size="11" text-anchor="end" fill="#52514e">v3_block_per_row</text>
+<text x="583.2" y="329.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">7,409</text>
+<line x1="432.5" y1="255" x2="432.5" y2="337" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="437.5" y="251" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+</svg>

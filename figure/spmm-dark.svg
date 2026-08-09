@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="682" height="472" viewBox="0 0 682 472" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="682" height="472" fill="#1a1a19"/>
+<text x="0" y="20" font-size="15" font-weight="600" fill="#ffffff">spmm: C = A_csr B</text>
+<text x="0" y="38" font-size="11.5" fill="#c3c2b7">throughput per rung, by dense width and sparsity pattern (GFLOP/s)</text>
+<circle cx="4" cy="54" r="4" fill="#3987e5"/>
+<text x="13" y="58" font-size="10.5" fill="#c3c2b7">ported from the CUDA original</text>
+<circle cx="195.45" cy="54" r="4" fill="#d95926"/>
+<text x="204.45" y="58" font-size="10.5" fill="#c3c2b7">added for CDNA</text>
+<text x="0" y="78" font-size="12.5" font-weight="600" fill="#c3c2b7">4096x4096, 32nnz, n=256</text>
+<line x1="178.0" y1="88" x2="178.0" y2="162" stroke="#2c2c2a" stroke-width="1"/>
+<text x="178.0" y="177" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="321.3" y1="88" x2="321.3" y2="162" stroke="#2c2c2a" stroke-width="1"/>
+<text x="321.3" y="177" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">2,000</text>
+<line x1="464.7" y1="88" x2="464.7" y2="162" stroke="#2c2c2a" stroke-width="1"/>
+<text x="464.7" y="177" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">4,000</text>
+<line x1="608.0" y1="88" x2="608.0" y2="162" stroke="#2c2c2a" stroke-width="1"/>
+<text x="608.0" y="177" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">6,000</text>
+<line x1="178" y1="88" x2="178" y2="162" stroke="#383835" stroke-width="1"/>
+<path d="M178 88 H347.0 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="101.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_scalar</text>
+<text x="358.0" y="101.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">2,414</text>
+<path d="M178 116 H299.3 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="129.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_row</text>
+<path d="M178 144 H473.0 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="157.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_vec4</text>
+<text x="484.0" y="157.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">4,172</text>
+<line x1="215.4" y1="83" x2="215.4" y2="165" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="220.4" y="79" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+<text x="0" y="206" font-size="12.5" font-weight="600" fill="#c3c2b7">4096x4096, 32nnz, n=1024</text>
+<line x1="178.0" y1="216" x2="178.0" y2="290" stroke="#2c2c2a" stroke-width="1"/>
+<text x="178.0" y="305" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="216" x2="285.5" y2="290" stroke="#2c2c2a" stroke-width="1"/>
+<text x="285.5" y="305" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">2,000</text>
+<line x1="393.0" y1="216" x2="393.0" y2="290" stroke="#2c2c2a" stroke-width="1"/>
+<text x="393.0" y="305" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">4,000</text>
+<line x1="500.5" y1="216" x2="500.5" y2="290" stroke="#2c2c2a" stroke-width="1"/>
+<text x="500.5" y="305" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">6,000</text>
+<line x1="608.0" y1="216" x2="608.0" y2="290" stroke="#2c2c2a" stroke-width="1"/>
+<text x="608.0" y="305" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">8,000</text>
+<line x1="178" y1="216" x2="178" y2="290" stroke="#383835" stroke-width="1"/>
+<path d="M178 216 H312.7 a4.0 4.0 0 0 1 4.0 4.0 V230.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="229.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_scalar</text>
+<text x="323.7" y="229.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">2,580</text>
+<path d="M178 244 H273.1 a4.0 4.0 0 0 1 4.0 4.0 V258.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="257.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_row</text>
+<path d="M178 272 H507.7 a4.0 4.0 0 0 1 4.0 4.0 V286.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="285.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_vec4</text>
+<text x="518.7" y="285.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">6,209</text>
+<line x1="214.6" y1="211" x2="214.6" y2="293" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="219.6" y="207" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+<text x="0" y="334" font-size="12.5" font-weight="600" fill="#c3c2b7">4096x4096, skewed, n=256</text>
+<line x1="178.0" y1="344" x2="178.0" y2="418" stroke="#2c2c2a" stroke-width="1"/>
+<text x="178.0" y="433" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="344" x2="285.5" y2="418" stroke="#2c2c2a" stroke-width="1"/>
+<text x="285.5" y="433" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
+<line x1="393.0" y1="344" x2="393.0" y2="418" stroke="#2c2c2a" stroke-width="1"/>
+<text x="393.0" y="433" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">200</text>
+<line x1="500.5" y1="344" x2="500.5" y2="418" stroke="#2c2c2a" stroke-width="1"/>
+<text x="500.5" y="433" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">300</text>
+<line x1="608.0" y1="344" x2="608.0" y2="418" stroke="#2c2c2a" stroke-width="1"/>
+<text x="608.0" y="433" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">400</text>
+<line x1="178" y1="344" x2="178" y2="418" stroke="#383835" stroke-width="1"/>
+<path d="M178 344 H262.5 a4.0 4.0 0 0 1 4.0 4.0 V358.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="357.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_scalar</text>
+<text x="273.5" y="357.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">82.4</text>
+<path d="M178 372 H576.9 a4.0 4.0 0 0 1 4.0 4.0 V386.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="385.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_row</text>
+<text x="587.9" y="385.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">375</text>
+<path d="M178 400 H273.4 a4.0 4.0 0 0 1 4.0 4.0 V414.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="413.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_vec4</text>
+<line x1="369.6" y1="339" x2="369.6" y2="421" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="374.6" y="335" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+</svg>

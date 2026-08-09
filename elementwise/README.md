@@ -24,6 +24,11 @@ One file per rung, as in the original. They differ only in the two constants at
 the top of each file (`VEC`, `PER_THREAD`) -- diff any two and the change is the
 whole lesson.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/elementwise-dark.svg">
+  <img alt="elementwise ladder: achieved bandwidth per rung" src="../figure/elementwise-light.svg">
+</picture>
+
 ## Results
 
 > Measured on an AMD Instinct MI350X VF (gfx950, wave64), 256 CU @ 2.2 GHz,

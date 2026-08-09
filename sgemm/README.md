@@ -44,6 +44,11 @@ empirically against `A @ B` before any GEMM was built on it, not recalled):
 | B (4x16) | `B[l / 16][l % 16]` |
 | D/C (16x16), 4 VGPRs | `D[4*(l/16) + r][l % 16]`, `r in 0..3` |
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/sgemm-dark.svg">
+  <img alt="sgemm ladder: TFLOP/s per rung at 1024, 2048 and 4096 cubed" src="../figure/sgemm-light.svg">
+</picture>
+
 ## Results
 
 > Measured on an AMD Instinct MI350X VF (gfx950, wave64), 256 CU @ 2.2 GHz,

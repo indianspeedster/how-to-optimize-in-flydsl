@@ -34,6 +34,11 @@ not in the repository, so its sparse benchmarks are not reproducible as shipped.
 pattern (every row the same length, perfect load balance) and a `skewed`
 power-law pattern with the same mean, which is what real graphs look like.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/spmv-dark.svg">
+  <img alt="spmv: throughput as the lanes-per-row knob is swept, three matrices" src="../figure/spmv-light.svg">
+</picture>
+
 ## Results
 
 > Measured on an AMD Instinct MI350X VF (gfx950, wave64), 256 CU @ 2.2 GHz,

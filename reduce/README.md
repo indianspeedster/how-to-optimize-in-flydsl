@@ -45,6 +45,11 @@ cross-wave LDS array holds 4 partials for a 256-thread block instead of 8.
 
 **`v8`/`v9` have no CUDA counterpart** and neither delivers a win -- see below.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/reduce-dark.svg">
+  <img alt="reduce ladder: achieved bandwidth per rung" src="../figure/reduce-light.svg">
+</picture>
+
 ## Results
 
 > Measured on an AMD Instinct MI350X VF (gfx950, wave64), 256 CU @ 2.2 GHz,
