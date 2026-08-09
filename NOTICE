@@ -1,0 +1,15 @@
+flydsl_optimization
+Copyright 2026 the flydsl_optimization contributors
+
+This product includes software derived from How_to_optimize_in_GPU
+(https://github.com/Liu-xiandong/How_to_optimize_in_GPU),
+Copyright Xiandong Liu, licensed under the Apache License, Version 2.0.
+
+The CUDA kernels in that project were ported to FlyDSL for AMD CDNA
+architectures. The structure of each optimization ladder, the selection of
+kernels, and the sequence of optimizations within each ladder originate there.
+
+Hardware facts about AMD CDNA 4 (gfx950) reproduced in flyopt/env.py are taken
+from AMD's published "Introducing AMD CDNA 4 Architecture" whitepaper. All
+performance measurements in this repository are unofficial and were neither
+produced nor endorsed by Advanced Micro Devices, Inc.

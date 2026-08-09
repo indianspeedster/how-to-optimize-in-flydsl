@@ -243,5 +243,8 @@ ISA published at [gpuopen.com](https://gpuopen.com/download/machine-readable-isa
 
 ## License
 
-Apache 2.0, the same license as the original repository it ports.
-See [`LICENSE`](LICENSE) (carried over from upstream).
+**Apache License 2.0** — the same license as the original repository this ports,
+whose `LICENSE` file is carried over here unchanged. See [`LICENSE`](LICENSE) for
+the full text and [`NOTICE`](NOTICE) for the derivative-work attribution required
+by section 4(d): upstream copyright Xiandong Liu, ported work copyright the
+contributors to this repository.
