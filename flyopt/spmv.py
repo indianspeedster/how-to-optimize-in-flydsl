@@ -94,7 +94,7 @@ def _build(lanes_per_row: int):
     return build
 
 
-# ── op registration ─────────────────────────────────────────────────────────
+# -- op registration ---------------------------------------------------------
 
 
 def _na(*_a, **_k):

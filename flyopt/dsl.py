@@ -48,7 +48,7 @@ if HAVE_FLYDSL:
         """
         return fmath.fma(a, b, c)
 
-    # ── launch ──────────────────────────────────────────────────────────────
+    # -- launch --------------------------------------------------------------
 
     _NO_CF = object()
 
@@ -90,7 +90,7 @@ if HAVE_FLYDSL:
         call.launch_fn = launch_fn
         return call
 
-    # ── vectorized global access ────────────────────────────────────────────
+    # -- vectorized global access --------------------------------------------
     #
     # A "vec_width" of V f32 elements is one buffer_load_dwordxV per lane. The
     # copy atom must match the transaction width exactly: 1 -> 32b, 2 -> 64b,
@@ -136,7 +136,7 @@ if HAVE_FLYDSL:
         fx.memref_store_vec(full(1, dtype(value), dtype), r)
         fx.copy_atom_call(copy_atom, r, fx.slice(divided, (None, index)))
 
-    # ── matrix cores ────────────────────────────────────────────────────────
+    # -- matrix cores --------------------------------------------------------
 
     def mfma_f32_16x16x4_f32(a, b, c):
         """``v_mfma_f32_16x16x4_f32``: D(16x16) = A(16x4) B(4x16) + C, one wave.
@@ -150,7 +150,7 @@ if HAVE_FLYDSL:
             arith._to_raw(a), arith._to_raw(b), arith._to_raw(c), 0, 0, 0)
         return Vec(op.result if hasattr(op, "result") else op, 4, fx.Float32)
 
-    # ── cross-lane reduction ────────────────────────────────────────────────
+    # -- cross-lane reduction ------------------------------------------------
 
     def shuffle_down(value, delta: int, width: int):
         """``__shfl_down_sync`` equivalent (gpu.shuffle, mode="down").

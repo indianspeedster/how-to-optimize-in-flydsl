@@ -103,7 +103,7 @@ def _shared_storage(slots: int):
     return SharedStorage
 
 
-# ── rungs 0-2: one element per thread, LDS tree, three indexing schemes ──────
+# -- rungs 0-2: one element per thread, LDS tree, three indexing schemes ------
 
 
 def _build_tree(scheme: str):
@@ -170,7 +170,7 @@ def _build_tree(scheme: str):
     return build
 
 
-# ── rungs 3-5: add during load, then shorten / unroll the tree ───────────────
+# -- rungs 3-5: add during load, then shorten / unroll the tree ---------------
 
 
 def _build_halved(tail: str, unroll: bool):
@@ -263,7 +263,7 @@ def _build_halved(tail: str, unroll: bool):
     return build
 
 
-# ── rungs 6-8: serial accumulation first, then a cheap cross-lane finish ─────
+# -- rungs 6-8: serial accumulation first, then a cheap cross-lane finish -----
 
 
 def _build_multi_add(finish: str, vec_width: int = 1, blocks: int = MULTI_ADD_BLOCKS,
@@ -368,7 +368,7 @@ def _build_multi_add(finish: str, vec_width: int = 1, blocks: int = MULTI_ADD_BL
     return build
 
 
-# ── op registration ─────────────────────────────────────────────────────────
+# -- op registration ---------------------------------------------------------
 
 
 def _na(*_a, **_k):

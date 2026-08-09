@@ -52,7 +52,7 @@ from flyopt.dsl import (
 )
 from flyopt.registry import Op, Shape, Variant, register
 
-# ── v0: no blocking ─────────────────────────────────────────────────────────
+# -- v0: no blocking ---------------------------------------------------------
 
 TS = 16   # v0/v1 use a 16x16 thread block
 
@@ -96,7 +96,7 @@ def _build_naive():
     return build
 
 
-# ── v1: one level of blocking (global -> LDS) ───────────────────────────────
+# -- v1: one level of blocking (global -> LDS) -------------------------------
 
 
 def _build_lds_tile():
@@ -156,7 +156,7 @@ def _build_lds_tile():
     return build
 
 
-# ── v2 / v3 / v4: two levels of blocking, TMxTN per thread ──────────────────
+# -- v2 / v3 / v4: two levels of blocking, TMxTN per thread ------------------
 
 # The default geometry is the CUDA original's: 128x128x8 block tile, 8x8 per
 # thread, 256 threads. `_TUNED` is what the sweep in docs/porting-notes.md
@@ -362,7 +362,7 @@ def _build_thread_tile(prefetch: bool, *, bm=BM, bn=BN, bk=BK, tm=TM, tn=TN,
     return build
 
 
-# ── v5: the matrix cores ────────────────────────────────────────────────────
+# -- v5: the matrix cores ----------------------------------------------------
 
 MFMA_M = MFMA_N = 16
 MFMA_K = 4          # v_mfma_f32_16x16x4_f32 -- the only f32 MFMA shape worth using
@@ -500,7 +500,7 @@ def _build_mfma(bm=128, bn=128, bk=8, lds_stages: int = 1):
     return build
 
 
-# ── op registration ─────────────────────────────────────────────────────────
+# -- op registration ---------------------------------------------------------
 
 
 def _na(*_a, **_k):

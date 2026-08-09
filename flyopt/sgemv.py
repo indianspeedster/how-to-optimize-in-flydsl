@@ -208,7 +208,7 @@ def _build_block_per_row(vec_width: int = 4):
     return build
 
 
-# ── op registration ─────────────────────────────────────────────────────────
+# -- op registration ---------------------------------------------------------
 
 
 def _na(*_a, **_k):

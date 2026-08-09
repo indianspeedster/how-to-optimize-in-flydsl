@@ -148,7 +148,7 @@ def _build(vec_width: int = 1, stage_lds: bool = False):
     return build
 
 
-# ── op registration ─────────────────────────────────────────────────────────
+# -- op registration ---------------------------------------------------------
 
 
 def _na(*_a, **_k):
