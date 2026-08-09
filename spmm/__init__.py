@@ -11,8 +11,9 @@ import torch
 from common.dsl import HAVE_FLYDSL
 from common.registry import Op, Shape, Variant, register
 from common.sparse import csr_to_torch, make_csr
-from .kernels import _build, THREADS
-
+from .spmm_v0_scalar import THREADS, build as build_v0
+from .spmm_v1_lds_row import build as build_v1
+from .spmm_v2_vec4 import build as build_v2
 
 # -- op registration ---------------------------------------------------------
 
@@ -21,8 +22,9 @@ def _na(*_a, **_k):
     raise RuntimeError("FlyDSL runtime unavailable")
 
 
-def _g(fn, *a, **kw):
-    return fn(*a, **kw) if HAVE_FLYDSL else (lambda *_a, **_k: _na)
+def _g(build):
+    """A rung's builder, or a stub that explains the missing runtime."""
+    return build if HAVE_FLYDSL else _na
 
 
 def _make_inputs(*, rows, cols, nnz_per_row, ncols, pattern):
@@ -49,13 +51,13 @@ register(
         doc="C = A_csr B (dense B) -- one workgroup per sparse row",
         variants=[
             Variant("v0_scalar", "1 output column per thread, scalar B loads",
-                    _g(_build, 1), origin="spmm/spmm.cu:My_spmm_csr_vector_kernel_v0",
+                    _g(build_v0), origin="spmm/spmm.cu:My_spmm_csr_vector_kernel_v0",
                     baseline=True),
             Variant("v1_lds_row", "stage the row's (col,val) pairs in LDS first",
-                    _g(_build, 1, stage_lds=True),
+                    _g(build_v1),
                     origin="spmm/spmm.cu:My_spmm_csr_vector_kernel_v1"),
             Variant("v2_vec4", "4 output columns per thread, float4 B loads",
-                    _g(_build, 4), origin="(CDNA4 addition, no CUDA counterpart)"),
+                    _g(build_v2), origin="(CDNA4 addition, no CUDA counterpart)"),
         ],
         shapes=[
             Shape("4096x4096, 32nnz, n=256", {"rows": 4096, "cols": 4096,

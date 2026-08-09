@@ -39,11 +39,13 @@ budgets against.
 One folder per kernel, mirroring the CUDA original: `elementwise/`, `reduce/`,
 `sgemv/`, `sgemm/`, `spmv/`, `spmm/`. Inside each, `README.md` is the chapter,
 `__init__.py` is the ladder (problem, reference, metrics, rungs in order), and
-the remaining `.py` files are the rung builders, split one file per structural
-step. Shared machinery lives in `common/`.
+every rung gets its own `<op>_vN_<name>.py` exporting a single `build(...)`.
+Shared machinery lives in `common/`.
 
-Adding a rung means adding a `Variant` to the `Op` in `<op>/__init__.py` and its
-builder to the matching file in that folder.
+Adding a rung means writing `<op>_vN_<name>.py` and adding a `Variant` to the
+`Op` in `<op>/__init__.py`. Rungs are deliberately self-contained even where
+that duplicates code: the repo teaches by diff, so a rung that can only be
+understood by tracing a shared parameter is a rung that failed to teach.
 A `Variant` is a *builder* -- `build(**shape) -> run(*tensors)` -- because FlyDSL
 specialises on compile-time shape. The bench and the tests both drive the
 registry, so a registered rung is automatically verified, timed, and tested.

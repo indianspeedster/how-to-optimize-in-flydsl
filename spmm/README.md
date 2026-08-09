@@ -8,11 +8,11 @@ that row walks the **same** row?
 
 ## Rungs
 
-| rung | what it does |
+| file | what it does |
 |---|---|
-| `v0_scalar` | one block per (row, column-chunk), one output column per thread |
-| `v1_lds_row` | stage the row's `(col_index, value)` pairs in LDS first |
-| `v2_vec4` | four output columns per thread, `buffer_load_dwordx4` on B |
+| `spmm_v0_scalar.py` | one block per (row, column-chunk), one output column per thread |
+| `spmm_v1_lds_row.py` | stage the row's `(col_index, value)` pairs in LDS first |
+| `spmm_v2_vec4.py` | four output columns per thread, `buffer_load_dwordx4` on B |
 
 `v0` is the CUDA `My_spmm_csr_vector_kernel_v0`. The whole block reads the same
 `(col_index, value)` pair on every step, which looks wasteful and mostly is not

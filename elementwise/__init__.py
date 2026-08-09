@@ -10,14 +10,18 @@ import torch
 
 from common.dsl import HAVE_FLYDSL
 from common.registry import Op, Shape, Variant, register
-from .kernels import _build
+from .elementwise_v0_float import build as build_v0
+from .elementwise_v1_float2 import build as build_v1
+from .elementwise_v2_float4 import build as build_v2
+from .elementwise_v3_float4_x4 import build as build_v3
 
-
-def _unavailable(*_a, **_k):
+def _na(*_a, **_k):
     raise RuntimeError("FlyDSL runtime unavailable")
 
 
-_b = _build if HAVE_FLYDSL else (lambda *a, **k: _unavailable)
+def _g(build):
+    """A rung's builder, or a stub that explains the missing runtime."""
+    return build if HAVE_FLYDSL else _na
 
 
 def _make_inputs(N: int):
@@ -42,13 +46,13 @@ register(
         doc="C = A + B  -- vectorized global access (float / float2 / float4)",
         variants=[
             Variant("v0_float", "one f32 per lane (buffer_load_dword)",
-                    _b(1), origin="elementwise/elementwise_add.cu:add", baseline=True),
+                    _g(build_v0), origin="elementwise/elementwise_add.cu:add", baseline=True),
             Variant("v1_float2", "two f32 per lane (buffer_load_dwordx2)",
-                    _b(2), origin="elementwise/elementwise_add.cu:vec2_add"),
+                    _g(build_v1), origin="elementwise/elementwise_add.cu:vec2_add"),
             Variant("v2_float4", "four f32 per lane (buffer_load_dwordx4)",
-                    _b(4), origin="elementwise/elementwise_add.cu:vec4_add"),
+                    _g(build_v2), origin="elementwise/elementwise_add.cu:vec4_add"),
             Variant("v3_float4_x4", "4x float4 per lane -- more loads in flight",
-                    _b(4, per_thread=4), origin="(CDNA4 addition, no CUDA counterpart)"),
+                    _g(build_v3), origin="(CDNA4 addition, no CUDA counterpart)"),
         ],
         shapes=[Shape("N=32M", {"N": 32 * 1024 * 1024}),
                 Shape("N=256M", {"N": 256 * 1024 * 1024})],

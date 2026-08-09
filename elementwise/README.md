@@ -13,16 +13,16 @@ named honestly.
 
 ## Rungs
 
-| file | rung | what it adds |
-|---|---|---|
-| `kernels.py` | `v0_float` | one f32 per lane |
-| | `v1_float2` | two f32 per lane |
-| | `v2_float4` | four f32 per lane |
-| | `v3_float4_x4` | four independent float4s per lane |
+| file | what it adds |
+|---|---|
+| `elementwise_v0_float.py` | one f32 per lane -- `buffer_load_dword` |
+| `elementwise_v1_float2.py` | two f32 per lane -- `dwordx2` |
+| `elementwise_v2_float4.py` | four f32 per lane -- `dwordx4` |
+| `elementwise_v3_float4_x4.py` | four independent float4s per lane |
 
-All four are the same builder with a different transaction width, so they share
-one file: separating them would hide the fact that the *only* difference is a
-constant.
+One file per rung, as in the original. They differ only in the two constants at
+the top of each file (`VEC`, `PER_THREAD`) -- diff any two and the change is the
+whole lesson.
 
 ## Results
 

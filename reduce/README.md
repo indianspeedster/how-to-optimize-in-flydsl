@@ -11,20 +11,22 @@ README, the number that compares them is **bytes read per second**.
 
 ## Rungs
 
-| file | rungs | what it adds |
-|---|---|---|
-| `tree.py` | `v0_baseline` | LDS tree, `tid % (2s) == 0` -- divergent inside every wavefront |
-| | `v1_no_divergence` | `index = 2*s*tid` -- active lanes packed |
-| | `v2_no_bank_conflict` | `s` halving with `tid < s` -- conflict-free LDS |
-| `halved.py` | `v3_add_during_load` | fold two globals into one LDS slot |
-| | `v4_unroll_last_wave` | the last wavefront finishes in registers, no barrier |
-| | `v5_full_unroll` | LDS levels emitted straight-line at compile time |
-| `multi_add.py` | `v6_multi_add` | serial accumulation per thread, then the tree |
-| | `v7_shuffle` | serial accumulation, then a wave shuffle |
-| | `v8_shuffle_vec4` | v7 with dwordx4 loads |
-| | `v9_vec4_wide_grid` | v8 on 32 blocks per CU |
+| file | what it adds |
+|---|---|
+| `reduce_v0_baseline.py` | LDS tree, `tid % (2s) == 0` -- divergent inside every wavefront |
+| `reduce_v1_no_divergence.py` | `index = 2*s*tid` -- active lanes packed |
+| `reduce_v2_no_bank_conflict.py` | `s` halving with `tid < s` -- conflict-free LDS |
+| `reduce_v3_add_during_load.py` | fold two globals into one LDS slot |
+| `reduce_v4_unroll_last_wave.py` | the last wavefront finishes in registers, no barrier |
+| `reduce_v5_full_unroll.py` | LDS levels emitted straight-line at compile time |
+| `reduce_v6_multi_add.py` | serial accumulation per thread, then the tree |
+| `reduce_v7_shuffle.py` | serial accumulation, then a wave shuffle |
+| `reduce_v8_shuffle_vec4.py` | v7 with dwordx4 loads |
+| `reduce_v9_vec4_wide_grid.py` | v8 on 32 blocks per CU |
 
-`_common.py` holds what the three families share; `__init__.py` is the ladder.
+One file per rung, as in the original -- read them in order and each is a single
+idea applied to the one before it. `_common.py` holds the constants and the LDS
+storage struct they share; `__init__.py` is the ladder.
 
 ## Where this departs from the CUDA original
 

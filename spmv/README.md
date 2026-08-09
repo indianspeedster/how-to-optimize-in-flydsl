@@ -15,13 +15,16 @@ full wavefront per row rather than two warps' worth.
 
 ## Rungs
 
-| rung | lanes per row |
+| file | lanes per row |
 |---|---|
-| `v0_thread_per_row` | 1 |
-| `v1_4_lanes` | 4 |
-| `v2_8_lanes` | 8 |
-| `v3_16_lanes` | 16 |
-| `v4_wave_per_row` | 64 |
+| `spmv_v0_thread_per_row.py` | 1 |
+| `spmv_v1_4_lanes.py` | 4 |
+| `spmv_v2_8_lanes.py` | 8 |
+| `spmv_v3_16_lanes.py` | 16 |
+| `spmv_v4_wave_per_row.py` | 64 |
+
+The five files are identical but for the `LANES_PER_ROW` constant at the top --
+which is the point: the original is one kernel with one knob.
 
 ## Matrices
 

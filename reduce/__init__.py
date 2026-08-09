@@ -1,15 +1,9 @@
 # SPDX-License-Identifier: Apache-2.0
 """Block-wise sum reduction -- the ten-rung ladder. See README.md in this folder.
 
-The rung builders live one family per file, mirroring the CUDA original's
-one-file-per-step layout:
-
-    tree.py       v0-v2   one element per thread, LDS tree
-    halved.py     v3-v5   add during load, then shorten and unroll the tree
-    multi_add.py  v6-v9   serial accumulation, then a cheap cross-lane finish
-
-This file is the ladder itself: the problem, the reference, and the rungs in
-order.
+One file per rung, as in the CUDA original -- read them in order and each is a
+single idea applied to the one before it. This file is the ladder itself: the
+problem, the reference, and the rungs in order.
 """
 
 # No `from __future__ import annotations` -- see reduce/_common.py.
@@ -20,17 +14,25 @@ from common.dsl import HAVE_FLYDSL
 from common.registry import Op, Shape, Variant, register
 
 from ._common import CDNA_BLOCKS, elems_per_block
-from .halved import build_halved
-from .multi_add import build_multi_add
-from .tree import build_tree
+from .reduce_v0_baseline import build as build_v0
+from .reduce_v1_no_divergence import build as build_v1
+from .reduce_v2_no_bank_conflict import build as build_v2
+from .reduce_v3_add_during_load import build as build_v3
+from .reduce_v4_unroll_last_wave import build as build_v4
+from .reduce_v5_full_unroll import build as build_v5
+from .reduce_v6_multi_add import build as build_v6
+from .reduce_v7_shuffle import build as build_v7
+from .reduce_v8_shuffle_vec4 import build as build_v8
+from .reduce_v9_vec4_wide_grid import build as build_v9
 
 
 def _na(*_a, **_k):
     raise RuntimeError("FlyDSL runtime unavailable")
 
 
-def _g(fn, *a, **k):
-    return fn(*a, **k) if HAVE_FLYDSL else (lambda *_a, **_k: _na)
+def _g(build):
+    """A rung's builder, or a stub that explains the missing runtime."""
+    return build if HAVE_FLYDSL else _na
 
 
 def _make_inputs(*, N: int, variant: str):
@@ -58,32 +60,32 @@ register(
         doc="block-wise sum -- the classic reduction ladder, on wave64",
         variants=[
             Variant("v0_baseline", "LDS tree, tid % (2s) == 0 -- divergent",
-                    _g(build_tree, "interleaved"),
+                    _g(build_v0),
                     origin="reduce/reduce_v0_baseline.cu", baseline=True),
             Variant("v1_no_divergence", "index = 2*s*tid -- active lanes contiguous",
-                    _g(build_tree, "contiguous"),
+                    _g(build_v1),
                     origin="reduce/reduce_v1_no_divergence_branch.cu"),
             Variant("v2_no_bank_conflict", "s halving, tid < s -- conflict-free LDS",
-                    _g(build_tree, "sequential"),
+                    _g(build_v2),
                     origin="reduce/reduce_v2_no_bank_conflict.cu"),
             Variant("v3_add_during_load", "fold 2 globals per thread before the tree",
-                    _g(build_halved, "lds", False),
+                    _g(build_v3),
                     origin="reduce/reduce_v3_add_during_load.cu"),
             Variant("v4_unroll_last_wave", "last 64 lanes finish in registers, no barrier",
-                    _g(build_halved, "wave", False),
+                    _g(build_v4),
                     origin="reduce/reduce_v4_unroll_last_warp.cu"),
             Variant("v5_full_unroll", "LDS levels emitted straight-line (constexpr)",
-                    _g(build_halved, "wave", True),
+                    _g(build_v5),
                     origin="reduce/reduce_v5_completely_unroll.cu"),
             Variant("v6_multi_add", "serial accumulate N/262144 per thread, then the tree",
-                    _g(build_multi_add, "lds"), origin="reduce/reduce_v6_multi_add.cu"),
+                    _g(build_v6), origin="reduce/reduce_v6_multi_add.cu"),
             Variant("v7_shuffle", "serial accumulate, then wave shuffle + 4 LDS slots",
-                    _g(build_multi_add, "wave"), origin="reduce/reduce_v7_shuffle.cu"),
+                    _g(build_v7), origin="reduce/reduce_v7_shuffle.cu"),
             Variant("v8_shuffle_vec4", "v7 with dwordx4 loads",
-                    _g(build_multi_add, "wave", 4),
+                    _g(build_v8),
                     origin="(CDNA4 addition, no CUDA counterpart)"),
             Variant("v9_vec4_wide_grid", f"v8 on a {CDNA_BLOCKS}-block grid (32/CU)",
-                    _g(build_multi_add, "wave", 4, CDNA_BLOCKS),
+                    _g(build_v9),
                     origin="(CDNA4 addition, no CUDA counterpart)"),
         ],
         shapes=[Shape("N=32M", {"N": 32 * 1024 * 1024}),

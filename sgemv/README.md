@@ -14,12 +14,12 @@ than rocBLAS at every shape tested.
 
 ## Rungs
 
-| file | rung | what it does |
-|---|---|---|
-| `wave_per_row.py` | `v0_wave_per_row` | one wavefront per row, one column per lane |
-| | `v1_wave_per_row_vec4` | one wavefront per row, float4 per lane |
-| `subwave.py` | `v2_subwave_per_row` | 64/N rows per wavefront, N lanes each |
-| `block_per_row.py` | `v3_block_per_row` | one workgroup per row + LDS block reduce |
+| file | what it does |
+|---|---|
+| `sgemv_v0_wave_per_row.py` | one wavefront per row, one column per lane |
+| `sgemv_v1_wave_per_row_vec4.py` | one wavefront per row, float4 per lane |
+| `sgemv_v2_subwave_per_row.py` | 64/N rows per wavefront, N lanes each |
+| `sgemv_v3_block_per_row.py` | one workgroup per row + LDS block reduce |
 
 ## Where this departs from the CUDA original
 

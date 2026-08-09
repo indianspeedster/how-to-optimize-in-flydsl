@@ -5,9 +5,8 @@ from CUDA to **FlyDSL** on **AMD Instinct (CDNA4 / gfx950)**.
 
 The original is a set of optimization *ladders*: for each kernel, a folder of
 files where each one adds exactly one idea to the previous one, so the delta
-between rungs is the lesson. That structure is preserved here -- one folder per
-kernel, each with its own README chapter and its rungs split across files by
-structural step. What changes is the machine underneath: a 64-lane wavefront
+between rungs is the lesson. That structure is preserved here file for file --
+one folder per kernel, one file per rung, a README chapter per folder. What changes is the machine underneath: a 64-lane wavefront
 instead of a 32-lane warp, 256 CUs instead of 80 SMs, matrix cores instead of
 SASS tuning. Every place that forces a different answer is called out in the
 folder's README and in [`docs/porting-notes.md`](docs/porting-notes.md).
@@ -107,7 +106,7 @@ labels `// useless optimize` is indeed useless on a uniform matrix (0.72x) and
 elementwise/  reduce/  sgemv/  sgemm/  spmv/  spmm/
     README.md      the chapter: rungs, what changed from CUDA, results
     __init__.py    the ladder: problem, reference, metrics, rungs in order
-    *.py           the rung builders, one file per structural step
+    <op>_vN_*.py   one file per rung -- diff two of them to see the step
 common/
     env.py         hardware detection + the peak figures results are measured against
     dsl.py         shared device-side helpers (copy atoms, shuffles, MFMA, fast launch)

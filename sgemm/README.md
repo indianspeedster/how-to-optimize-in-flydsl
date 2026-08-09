@@ -10,16 +10,19 @@ asks for.
 
 ## Rungs
 
-| file | rung | what it adds |
-|---|---|---|
-| `naive.py` | `v0_naive` | nothing -- one thread per C element, all from global |
-| `lds_tile.py` | `v1_lds_tile` | blocking level 1: a 16x16x16 LDS tile |
-| `thread_tile.py` | `v2_thread_tile` | blocking level 2: 128x128x8 tile, 8x8 per thread |
-| | `v3_prefetch` | next tile's global loads issue before this tile's math |
-| | `v4_double_buffer` | LDS ping-pong -- one barrier per K-tile instead of two |
-| `mfma.py` | `v5_mfma` | the same blocking, run on the matrix cores |
+| file | what it adds |
+|---|---|
+| `sgemm_v0_naive.py` | nothing -- one thread per C element, all from global |
+| `sgemm_v1_lds_tile.py` | blocking level 1: a 16x16x16 LDS tile |
+| `sgemm_v2_thread_tile.py` | blocking level 2: 128x128x8 tile, 8x8 per thread |
+| `sgemm_v3_prefetch.py` | next tile's global loads issue before this tile's math |
+| `sgemm_v4_double_buffer.py` | LDS ping-pong -- one barrier per K-tile instead of two |
+| `sgemm_v5_mfma.py` | the same blocking, run on the matrix cores |
 
-The `thread_tile.py` shapes come straight from the original and are not
+v2, v3 and v4 are deliberately near-identical files that differ only in their K
+loop -- exactly as `sgemm_v1.cu` and `sgemm_v3.cu` are in the original. Diff them.
+
+The v2/v3/v4 shapes come straight from the original and are not
 arbitrary: 256 threads x 8x8 gives every thread 64 accumulators -- enough
 register pressure to hide LDS latency, not enough to spill (162 VGPRs measured,
 no scratch). A is transposed on the way into LDS so the inner loop reads

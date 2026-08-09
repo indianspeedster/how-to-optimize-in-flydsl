@@ -11,8 +11,11 @@ import torch
 from common.dsl import HAVE_FLYDSL
 from common.registry import Op, Shape, Variant, register
 from common.sparse import csr_to_torch, make_csr
-from .kernels import _build, THREADS
-
+from .spmv_v0_thread_per_row import THREADS, build as build_v0
+from .spmv_v1_4_lanes import build as build_v1
+from .spmv_v2_8_lanes import build as build_v2
+from .spmv_v3_16_lanes import build as build_v3
+from .spmv_v4_wave_per_row import build as build_v4
 
 # -- op registration ---------------------------------------------------------
 
@@ -21,8 +24,9 @@ def _na(*_a, **_k):
     raise RuntimeError("FlyDSL runtime unavailable")
 
 
-def _g(fn, *a):
-    return fn(*a) if HAVE_FLYDSL else (lambda *_a, **_k: _na)
+def _g(build):
+    """A rung's builder, or a stub that explains the missing runtime."""
+    return build if HAVE_FLYDSL else _na
 
 
 def _make_inputs(*, rows, cols, nnz_per_row, pattern):
@@ -54,16 +58,16 @@ register(
         doc="y = A_csr x  -- sweeping the lanes-per-row knob on a 64-lane wave",
         variants=[
             Variant("v0_thread_per_row", "1 lane per row (the classic scalar CSR kernel)",
-                    _g(_build, 1), origin="spmv/spmv.cu (THREADS_PER_VECTOR=1)",
+                    _g(build_v0), origin="spmv/spmv.cu (THREADS_PER_VECTOR=1)",
                     baseline=True),
-            Variant("v1_4_lanes", "4 lanes per row", _g(_build, 4),
+            Variant("v1_4_lanes", "4 lanes per row", _g(build_v1),
                     origin="spmv/spmv.cu (THREADS_PER_VECTOR=4)"),
-            Variant("v2_8_lanes", "8 lanes per row", _g(_build, 8),
+            Variant("v2_8_lanes", "8 lanes per row", _g(build_v2),
                     origin="spmv/spmv.cu (THREADS_PER_VECTOR=8)"),
-            Variant("v3_16_lanes", "16 lanes per row", _g(_build, 16),
+            Variant("v3_16_lanes", "16 lanes per row", _g(build_v3),
                     origin="spmv/spmv.cu (THREADS_PER_VECTOR=16)"),
             Variant("v4_wave_per_row", "a full 64-lane wavefront per row",
-                    _g(_build, 64), origin="spmv/spmv.cu (THREADS_PER_VECTOR=32 on CUDA)"),
+                    _g(build_v4), origin="spmv/spmv.cu (THREADS_PER_VECTOR=32 on CUDA)"),
         ],
         shapes=[
             Shape("1M rows, 32 nnz/row", {"rows": 1 << 20, "cols": 1 << 20,

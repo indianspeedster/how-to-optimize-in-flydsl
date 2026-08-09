@@ -1,13 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 """SGEMV (y = A x) -- the ladder. See README.md in this folder.
 
-One file per mapping of rows onto lanes, as in the CUDA original:
-
-    wave_per_row.py   v0, v1   one wavefront per row (scalar / float4)
-    subwave.py        v2       64/N rows per wavefront, N lanes each
-    block_per_row.py  v3       one workgroup per row + LDS block reduce
-
-This file is the ladder itself.
+One file per rung, as in the CUDA original -- read them in order and each is a
+single idea applied to the one before it. This file is the ladder itself.
 """
 
 # No `from __future__ import annotations` -- see sgemv/block_per_row.py.
@@ -18,17 +13,19 @@ from common.dsl import HAVE_FLYDSL
 from common.env import wave_size
 from common.registry import Op, Shape, Variant, register
 
-from .block_per_row import build_block_per_row
-from .subwave import build_subwave
-from .wave_per_row import THREADS, build_wave_per_row
+from .sgemv_v0_wave_per_row import THREADS, build as build_v0
+from .sgemv_v1_wave_per_row_vec4 import build as build_v1
+from .sgemv_v2_subwave_per_row import build as build_v2
+from .sgemv_v3_block_per_row import build as build_v3
 
 
 def _na(*_a, **_k):
     raise RuntimeError("FlyDSL runtime unavailable")
 
 
-def _g(fn, *a):
-    return fn(*a) if HAVE_FLYDSL else (lambda *_a, **_k: _na)
+def _g(build):
+    """A rung's builder, or a stub that explains the missing runtime."""
+    return build if HAVE_FLYDSL else _na
 
 
 def _make_inputs(*, M: int, N: int):
@@ -60,17 +57,17 @@ register(
         doc="y = A x -- mapping rows onto 64-lane wavefronts",
         variants=[
             Variant("v0_wave_per_row", "1 wavefront per row, 1 column per lane",
-                    _g(build_wave_per_row, 1), origin="sgemv/Sgemv_v0.cu",
+                    _g(build_v0), origin="sgemv/Sgemv_v0.cu",
                     baseline=True, supports=lambda **s: _sup_wave(**s, vec=1)),
             Variant("v1_wave_per_row_vec4", "1 wavefront per row, float4 per lane",
-                    _g(build_wave_per_row, 4), origin="sgemv/Sgemv_v1.cu",
+                    _g(build_v1), origin="sgemv/Sgemv_v1.cu",
                     supports=lambda **s: _sup_wave(**s, vec=4)),
             Variant("v2_subwave_per_row", "64/N rows per wavefront, N lanes each",
-                    _g(build_subwave), origin="sgemv/Sgemv_v2.cu",
+                    _g(build_v2), origin="sgemv/Sgemv_v2.cu",
                     supports=lambda **s: _W % s["N"] == 0 and s["N"] <= _W
                     and s["M"] % ((THREADS // _W) * (_W // s["N"])) == 0),
             Variant("v3_block_per_row", "1 workgroup per row + LDS block reduce",
-                    _g(build_block_per_row, 4),
+                    _g(build_v3),
                     origin="(CDNA4 addition, no CUDA counterpart)",
                     supports=lambda **s: s["N"] % (THREADS * 4) == 0),
         ],
