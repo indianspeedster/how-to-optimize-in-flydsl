@@ -185,6 +185,13 @@ kernel a plain row-major `B`, and so does rocBLAS; accepting a preshuffled `B`
 would be solving a different problem and the comparison would stop meaning
 anything.
 
+And to be clear about what this does and does not measure: the gap is between a
+*teaching kernel* and a mature vendor library, not between FlyDSL and rocBLAS. A
+production FlyDSL GEMM brings the preshuffled layout, XOR swizzle, async copy and
+CShuffle epilogue listed above; none of them are here, because each would make
+the rung harder to read for no pedagogical gain. See the top-level README's
+"What this repo is, and is not".
+
 So: f32 GEMM against a mature vendor library is the one place in this repo where
 the honest answer is that the vendor wins. It is also the least interesting
 datatype on this silicon -- the same matrix cores do 2.5 PFLOP/s of FP16 and 5

@@ -27,6 +27,31 @@ HBM 8.0 TB/s | FlyDSL 0.2.4 | ROCm 7.2 | 90/90 rows correct
 > for the hardware. Peak figures quoted as denominators come from AMD's published
 > CDNA 4 whitepaper; everything measured is mine.
 
+## What this repo is, and is not
+
+**It is a teaching repo.** Every rung isolates exactly one idea and is written to
+be read standalone and diffed against its neighbour. That constraint costs
+performance on purpose: rungs duplicate code instead of sharing it, geometry is
+written out instead of autotuned, and each kernel stops at the one idea it is
+demonstrating rather than stacking every trick that would make it fast.
+
+**These numbers are not what FlyDSL can do.** They are what *these* kernels do,
+and the gap is large and deliberate. A production FlyDSL GEMM -- the
+`preshuffle_gemm` this repo's tuning notes lean on -- adds a preshuffled B
+layout, XOR bank-conflict swizzling, async global-to-LDS copy, a CShuffle
+epilogue, and autotuned tile selection. None of that is here. Where a vendor
+library wins (see [sgemm](sgemm/)), the honest reading is "this teaching kernel
+is slower than a mature library", not "FlyDSL is slower than rocBLAS".
+
+**The datatype is a teaching choice too.** Everything is f32 so the ladders stay
+comparable with the CUDA original. On CDNA4 that is the slowest matrix path there
+is: the same cores do 2.5 PFLOP/s of FP16 and 5 PFLOP/s of FP8 against 157
+TFLOP/s of FP32 -- 16x and 32x more. Anything built for speed rather than for
+teaching would start by not using f32.
+
+So read the **deltas between rungs**, which are the lesson, rather than the
+absolute numbers as a benchmark of the DSL or the hardware.
+
 ---
 
 ## Quick start
@@ -157,6 +182,8 @@ FMA and costs 6x).
 
 - **Unofficial.** See the disclaimer above: personal measurements, not
   AMD-verified or AMD-endorsed performance data.
+- **Not a FlyDSL benchmark.** See "What this repo is, and is not": these are
+  teaching kernels, deliberately short of what a production FlyDSL kernel does.
 - Measured on an **MI350X VF** (a virtualised partition), one GPU, ROCm 7.2.
   Efficiency percentages use the MI350X clock (2.2 GHz); an MI355X would move the
   denominators up ~9%.
