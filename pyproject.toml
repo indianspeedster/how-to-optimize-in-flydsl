@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flydsl-optimization"
+version = "0.1.0"
+description = "FlyDSL ports of the How_to_optimize_in_GPU kernel ladders, for AMD CDNA"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+# torch (ROCm build) and flydsl are expected to come from the environment's
+# venv, not from PyPI -- pinning them here would fight the ROCm wheel.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["flyopt", "bench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
