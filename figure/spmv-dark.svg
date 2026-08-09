@@ -18,20 +18,20 @@
 <line x1="608.0" y1="88" x2="608.0" y2="218" stroke="#2c2c2a" stroke-width="1"/>
 <text x="608.0" y="233" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">400</text>
 <line x1="178" y1="88" x2="178" y2="218" stroke="#383835" stroke-width="1"/>
-<path d="M178 88 H229.0 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 88 H228.6 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="101.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_thread_per_row</text>
-<text x="240.0" y="101.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">51.2</text>
+<text x="239.6" y="101.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">50.8</text>
 <path d="M178 116 H327.3 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="129.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_4_lanes</text>
-<path d="M178 144 H448.2 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 144 H447.6 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="157.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_8_lanes</text>
-<path d="M178 172 H506.1 a4.0 4.0 0 0 1 4.0 4.0 V186.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 172 H499.9 a4.0 4.0 0 0 1 4.0 4.0 V186.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="185.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_16_lanes</text>
-<text x="517.1" y="185.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">309</text>
-<path d="M178 200 H427.5 a4.0 4.0 0 0 1 4.0 4.0 V214.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="510.9" y="185.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">303</text>
+<path d="M178 200 H423.7 a4.0 4.0 0 0 1 4.0 4.0 V214.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="213.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_wave_per_row</text>
-<line x1="201.6" y1="83" x2="201.6" y2="221" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="206.6" y="79" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+<line x1="201.0" y1="83" x2="201.0" y2="221" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="206.0" y="79" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
 <text x="0" y="262" font-size="12.5" font-weight="600" fill="#c3c2b7">1M rows, 8 nnz/row</text>
 <line x1="178.0" y1="272" x2="178.0" y2="402" stroke="#2c2c2a" stroke-width="1"/>
 <text x="178.0" y="417" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
@@ -44,15 +44,15 @@
 <line x1="608.0" y1="272" x2="608.0" y2="402" stroke="#2c2c2a" stroke-width="1"/>
 <text x="608.0" y="417" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">400</text>
 <line x1="178" y1="272" x2="178" y2="402" stroke="#383835" stroke-width="1"/>
-<path d="M178 272 H346.8 a4.0 4.0 0 0 1 4.0 4.0 V286.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 272 H346.6 a4.0 4.0 0 0 1 4.0 4.0 V286.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="285.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_thread_per_row</text>
-<text x="357.8" y="285.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">161</text>
-<path d="M178 300 H505.7 a4.0 4.0 0 0 1 4.0 4.0 V314.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="357.6" y="285.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">161</text>
+<path d="M178 300 H505.6 a4.0 4.0 0 0 1 4.0 4.0 V314.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="313.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_4_lanes</text>
-<path d="M178 328 H510.4 a4.0 4.0 0 0 1 4.0 4.0 V342.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 328 H510.1 a4.0 4.0 0 0 1 4.0 4.0 V342.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="341.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_8_lanes</text>
-<text x="521.4" y="341.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">313</text>
-<path d="M178 356 H439.3 a4.0 4.0 0 0 1 4.0 4.0 V370.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="521.1" y="341.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">313</text>
+<path d="M178 356 H439.2 a4.0 4.0 0 0 1 4.0 4.0 V370.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="369.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_16_lanes</text>
 <path d="M178 384 H265.1 a4.0 4.0 0 0 1 4.0 4.0 V398.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="397.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_wave_per_row</text>
@@ -62,26 +62,26 @@
 <line x1="178.0" y1="456" x2="178.0" y2="586" stroke="#2c2c2a" stroke-width="1"/>
 <text x="178.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
 <line x1="285.5" y1="456" x2="285.5" y2="586" stroke="#2c2c2a" stroke-width="1"/>
-<text x="285.5" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">20</text>
+<text x="285.5" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">25</text>
 <line x1="393.0" y1="456" x2="393.0" y2="586" stroke="#2c2c2a" stroke-width="1"/>
-<text x="393.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">40</text>
+<text x="393.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
 <line x1="500.5" y1="456" x2="500.5" y2="586" stroke="#2c2c2a" stroke-width="1"/>
-<text x="500.5" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">60</text>
+<text x="500.5" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">75</text>
 <line x1="608.0" y1="456" x2="608.0" y2="586" stroke="#2c2c2a" stroke-width="1"/>
-<text x="608.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">80</text>
+<text x="608.0" y="601" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
 <line x1="178" y1="456" x2="178" y2="586" stroke="#383835" stroke-width="1"/>
-<path d="M178 456 H201.4 a4.0 4.0 0 0 1 4.0 4.0 V470.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 456 H196.5 a4.0 4.0 0 0 1 4.0 4.0 V470.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="469.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_thread_per_row</text>
-<text x="212.4" y="469.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">5.09</text>
-<path d="M178 484 H244.5 a4.0 4.0 0 0 1 4.0 4.0 V498.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="207.5" y="469.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">5.24</text>
+<path d="M178 484 H233.2 a4.0 4.0 0 0 1 4.0 4.0 V498.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="497.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_4_lanes</text>
-<path d="M178 512 H275.4 a4.0 4.0 0 0 1 4.0 4.0 V526.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 512 H261.5 a4.0 4.0 0 0 1 4.0 4.0 V526.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="525.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_8_lanes</text>
-<path d="M178 540 H333.4 a4.0 4.0 0 0 1 4.0 4.0 V554.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 540 H318.1 a4.0 4.0 0 0 1 4.0 4.0 V554.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="553.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_16_lanes</text>
-<path d="M178 568 H550.1 a4.0 4.0 0 0 1 4.0 4.0 V582.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 568 H528.4 a4.0 4.0 0 0 1 4.0 4.0 V582.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="581.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_wave_per_row</text>
-<text x="561.1" y="581.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">70.0</text>
-<line x1="271.5" y1="451" x2="271.5" y2="589" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="276.5" y="447" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+<text x="539.4" y="581.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">82.4</text>
+<line x1="251.8" y1="451" x2="251.8" y2="589" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="256.8" y="447" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
 </svg>

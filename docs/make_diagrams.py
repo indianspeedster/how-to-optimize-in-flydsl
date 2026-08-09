@@ -405,6 +405,24 @@ def sgemm_block(mode, title, caption):
             y += 18
             f.note(y, "a 16x16x16 tile is staged in LDS once, then every element "
                       "is used 16 times instead of once")
+        elif mode == "tuned":
+            f.row_label("grid @1024^3", y, "128x128 tile")
+            y = f.grid(y, 4, 8, lambda r, c: (0, None), cw=16, ch=12)
+            y += 12
+            f.note(y, "64 blocks on a 256-CU part: three quarters of the machine idle")
+            y += 26
+            f.row_label("grid @1024^3", y, "64x64 tile")
+            y = f.grid(y, 8, 16, lambda r, c: (2, None), cw=16, ch=12)
+            y += 12
+            f.note(y, "256 blocks: the tile is picked from the shape, which is "
+                      "the whole 3.1x over v5 at this size")
+            y += 26
+            f.row_label("K-loop", y)
+            f.cells(y, 4, [1, 2, 1, 2],
+                    ["barrier", "load k+1", "mfma(p)", "->LDS(1-p)"])
+            y += CH + 18
+            f.note(y, "LDS ping-pong + register prefetch + sched hints "
+                      "(the hints measured flat -- kept, labelled)")
         elif mode in ("tile", "prefetch", "double"):
             f.row_label("C block tile", y)
             y = f.grid(y, 4, 8, lambda r, c: (2 if (r < 2 and c < 2) else 1,
@@ -560,6 +578,8 @@ def main():
          "the next tile's global loads issue before this tile's math")),
         ("sgemm-v4", sgemm_block("double", "sgemm v4 -- LDS ping-pong",
          "one barrier per K-tile instead of two")),
+        ("sgemm-v6", sgemm_block("tuned", "sgemm v6 -- tile picked from the shape",
+         "the same MFMA kernel, sized so the grid fills the machine")),
         ("sgemm-v5", sgemm_block("mfma", "sgemm v5 -- the matrix cores",
          "same blocking, v_mfma_f32_16x16x4_f32 instead of vector FMA")),
         ("spmv-v0", spmv_lanes(1, "spmv v0 -- one lane per row",

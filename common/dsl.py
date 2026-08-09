@@ -34,6 +34,7 @@ if HAVE_FLYDSL:
     from flydsl.expr.typing import Vector as Vec
     from flydsl.expr import arith, const_expr, gpu, range_constexpr  # noqa: F401
     from flydsl.expr import math as fmath  # noqa: F401
+    from flydsl.expr import rocdl  # noqa: F401  -- sched_* hot-loop hints
     from flydsl.expr.vector import ReductionOp, full  # noqa: F401
 
     FASTMATH = arith.FastMathFlags.fast

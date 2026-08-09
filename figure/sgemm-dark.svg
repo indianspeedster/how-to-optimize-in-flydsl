@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="682" height="724" viewBox="0 0 682 724" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
-<rect width="682" height="724" fill="#1a1a19"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="682" height="808" viewBox="0 0 682 808" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="682" height="808" fill="#1a1a19"/>
 <text x="0" y="20" font-size="15" font-weight="600" fill="#ffffff">sgemm: C = A B (f32)</text>
 <text x="0" y="38" font-size="11.5" fill="#c3c2b7">throughput per rung, by problem size (TFLOP/s)</text>
 <circle cx="4" cy="54" r="4" fill="#3987e5"/>
@@ -7,83 +7,89 @@
 <circle cx="195.45" cy="54" r="4" fill="#d95926"/>
 <text x="204.45" y="58" font-size="10.5" fill="#c3c2b7">added for CDNA</text>
 <text x="0" y="78" font-size="12.5" font-weight="600" fill="#c3c2b7">1024^3</text>
-<line x1="178.0" y1="88" x2="178.0" y2="246" stroke="#2c2c2a" stroke-width="1"/>
-<text x="178.0" y="261" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
-<line x1="285.5" y1="88" x2="285.5" y2="246" stroke="#2c2c2a" stroke-width="1"/>
-<text x="285.5" y="261" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">25</text>
-<line x1="393.0" y1="88" x2="393.0" y2="246" stroke="#2c2c2a" stroke-width="1"/>
-<text x="393.0" y="261" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
-<line x1="500.5" y1="88" x2="500.5" y2="246" stroke="#2c2c2a" stroke-width="1"/>
-<text x="500.5" y="261" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">75</text>
-<line x1="608.0" y1="88" x2="608.0" y2="246" stroke="#2c2c2a" stroke-width="1"/>
-<text x="608.0" y="261" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
-<line x1="178" y1="88" x2="178" y2="246" stroke="#383835" stroke-width="1"/>
+<line x1="178.0" y1="88" x2="178.0" y2="274" stroke="#2c2c2a" stroke-width="1"/>
+<text x="178.0" y="289" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="285.5" y1="88" x2="285.5" y2="274" stroke="#2c2c2a" stroke-width="1"/>
+<text x="285.5" y="289" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">25</text>
+<line x1="393.0" y1="88" x2="393.0" y2="274" stroke="#2c2c2a" stroke-width="1"/>
+<text x="393.0" y="289" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
+<line x1="500.5" y1="88" x2="500.5" y2="274" stroke="#2c2c2a" stroke-width="1"/>
+<text x="500.5" y="289" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">75</text>
+<line x1="608.0" y1="88" x2="608.0" y2="274" stroke="#2c2c2a" stroke-width="1"/>
+<text x="608.0" y="289" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
+<line x1="178" y1="88" x2="178" y2="274" stroke="#383835" stroke-width="1"/>
 <path d="M178 88 H210.9 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="101.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_naive</text>
 <text x="221.9" y="101.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">8.59</text>
-<path d="M178 116 H235.1 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 116 H235.3 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="129.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_tile</text>
-<path d="M178 144 H219.0 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 144 H219.1 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="157.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_thread_tile</text>
 <path d="M178 172 H225.4 a4.0 4.0 0 0 1 4.0 4.0 V186.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="185.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_prefetch</text>
-<path d="M178 200 H223.5 a4.0 4.0 0 0 1 4.0 4.0 V214.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<path d="M178 200 H223.6 a4.0 4.0 0 0 1 4.0 4.0 V214.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
 <text x="169" y="213.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_double_buffer</text>
-<path d="M178 228 H246.7 a4.0 4.0 0 0 1 4.0 4.0 V242.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<path d="M178 228 H246.5 a4.0 4.0 0 0 1 4.0 4.0 V242.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
 <text x="169" y="241.0" font-size="11" text-anchor="end" fill="#c3c2b7">v5_mfma</text>
-<text x="257.7" y="241.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">16.9</text>
-<line x1="578.9" y1="83" x2="578.9" y2="249" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="583.9" y="79" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
-<text x="0" y="290" font-size="12.5" font-weight="600" fill="#c3c2b7">2048^3</text>
-<line x1="178.0" y1="300" x2="178.0" y2="458" stroke="#2c2c2a" stroke-width="1"/>
-<text x="178.0" y="473" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
-<line x1="321.3" y1="300" x2="321.3" y2="458" stroke="#2c2c2a" stroke-width="1"/>
-<text x="321.3" y="473" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
-<line x1="464.7" y1="300" x2="464.7" y2="458" stroke="#2c2c2a" stroke-width="1"/>
-<text x="464.7" y="473" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
-<line x1="608.0" y1="300" x2="608.0" y2="458" stroke="#2c2c2a" stroke-width="1"/>
-<text x="608.0" y="473" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">150</text>
-<line x1="178" y1="300" x2="178" y2="458" stroke="#383835" stroke-width="1"/>
-<path d="M178 300 H199.1 a4.0 4.0 0 0 1 4.0 4.0 V314.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="313.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_naive</text>
-<text x="210.1" y="313.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">8.74</text>
-<path d="M178 328 H217.4 a4.0 4.0 0 0 1 4.0 4.0 V342.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="341.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_tile</text>
-<path d="M178 356 H294.7 a4.0 4.0 0 0 1 4.0 4.0 V370.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="369.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_thread_tile</text>
-<path d="M178 384 H310.6 a4.0 4.0 0 0 1 4.0 4.0 V398.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="397.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_prefetch</text>
-<path d="M178 412 H305.2 a4.0 4.0 0 0 1 4.0 4.0 V426.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="425.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_double_buffer</text>
-<path d="M178 440 H364.8 a4.0 4.0 0 0 1 4.0 4.0 V454.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
-<text x="169" y="453.0" font-size="11" text-anchor="end" fill="#c3c2b7">v5_mfma</text>
-<text x="375.8" y="453.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">66.6</text>
-<line x1="525.6" y1="295" x2="525.6" y2="461" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="530.6" y="291" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
-<text x="0" y="502" font-size="12.5" font-weight="600" fill="#c3c2b7">4096^3</text>
-<line x1="178.0" y1="512" x2="178.0" y2="670" stroke="#2c2c2a" stroke-width="1"/>
-<text x="178.0" y="685" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
-<line x1="321.3" y1="512" x2="321.3" y2="670" stroke="#2c2c2a" stroke-width="1"/>
-<text x="321.3" y="685" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
-<line x1="464.7" y1="512" x2="464.7" y2="670" stroke="#2c2c2a" stroke-width="1"/>
-<text x="464.7" y="685" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
-<line x1="608.0" y1="512" x2="608.0" y2="670" stroke="#2c2c2a" stroke-width="1"/>
-<text x="608.0" y="685" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">150</text>
-<line x1="178" y1="512" x2="178" y2="670" stroke="#383835" stroke-width="1"/>
-<path d="M178 512 H197.3 a4.0 4.0 0 0 1 4.0 4.0 V526.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="525.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_naive</text>
-<text x="208.3" y="525.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">8.13</text>
-<path d="M178 540 H213.8 a4.0 4.0 0 0 1 4.0 4.0 V554.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="553.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_tile</text>
-<path d="M178 568 H371.0 a4.0 4.0 0 0 1 4.0 4.0 V582.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="581.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_thread_tile</text>
-<path d="M178 596 H371.3 a4.0 4.0 0 0 1 4.0 4.0 V610.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="609.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_prefetch</text>
-<path d="M178 624 H370.4 a4.0 4.0 0 0 1 4.0 4.0 V638.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
-<text x="169" y="637.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_double_buffer</text>
-<path d="M178 652 H498.5 a4.0 4.0 0 0 1 4.0 4.0 V666.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
-<text x="169" y="665.0" font-size="11" text-anchor="end" fill="#c3c2b7">v5_mfma</text>
-<text x="509.5" y="665.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">113</text>
-<line x1="566.4" y1="507" x2="566.4" y2="673" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="571.4" y="503" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+<path d="M178 256 H402.7 a4.0 4.0 0 0 1 4.0 4.0 V270.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="269.0" font-size="11" text-anchor="end" fill="#c3c2b7">v6_tuned</text>
+<text x="413.7" y="269.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">53.2</text>
+<line x1="593.1" y1="83" x2="593.1" y2="277" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="598.1" y="79" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+<text x="0" y="318" font-size="12.5" font-weight="600" fill="#c3c2b7">2048^3</text>
+<line x1="178.0" y1="328" x2="178.0" y2="514" stroke="#2c2c2a" stroke-width="1"/>
+<text x="178.0" y="529" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="321.3" y1="328" x2="321.3" y2="514" stroke="#2c2c2a" stroke-width="1"/>
+<text x="321.3" y="529" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
+<line x1="464.7" y1="328" x2="464.7" y2="514" stroke="#2c2c2a" stroke-width="1"/>
+<text x="464.7" y="529" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
+<line x1="608.0" y1="328" x2="608.0" y2="514" stroke="#2c2c2a" stroke-width="1"/>
+<text x="608.0" y="529" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">150</text>
+<line x1="178" y1="328" x2="178" y2="514" stroke="#383835" stroke-width="1"/>
+<path d="M178 328 H199.1 a4.0 4.0 0 0 1 4.0 4.0 V342.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="341.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_naive</text>
+<text x="210.1" y="341.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">8.75</text>
+<path d="M178 356 H217.4 a4.0 4.0 0 0 1 4.0 4.0 V370.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="369.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_tile</text>
+<path d="M178 384 H294.7 a4.0 4.0 0 0 1 4.0 4.0 V398.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="397.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_thread_tile</text>
+<path d="M178 412 H310.4 a4.0 4.0 0 0 1 4.0 4.0 V426.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="425.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_prefetch</text>
+<path d="M178 440 H305.0 a4.0 4.0 0 0 1 4.0 4.0 V454.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="453.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_double_buffer</text>
+<path d="M178 468 H364.5 a4.0 4.0 0 0 1 4.0 4.0 V482.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="481.0" font-size="11" text-anchor="end" fill="#c3c2b7">v5_mfma</text>
+<path d="M178 496 H452.2 a4.0 4.0 0 0 1 4.0 4.0 V510.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="509.0" font-size="11" text-anchor="end" fill="#c3c2b7">v6_tuned</text>
+<text x="463.2" y="509.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">97.1</text>
+<line x1="522.8" y1="323" x2="522.8" y2="517" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="527.8" y="319" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
+<text x="0" y="558" font-size="12.5" font-weight="600" fill="#c3c2b7">4096^3</text>
+<line x1="178.0" y1="568" x2="178.0" y2="754" stroke="#2c2c2a" stroke-width="1"/>
+<text x="178.0" y="769" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">0</text>
+<line x1="321.3" y1="568" x2="321.3" y2="754" stroke="#2c2c2a" stroke-width="1"/>
+<text x="321.3" y="769" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">50</text>
+<line x1="464.7" y1="568" x2="464.7" y2="754" stroke="#2c2c2a" stroke-width="1"/>
+<text x="464.7" y="769" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">100</text>
+<line x1="608.0" y1="568" x2="608.0" y2="754" stroke="#2c2c2a" stroke-width="1"/>
+<text x="608.0" y="769" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">150</text>
+<line x1="178" y1="568" x2="178" y2="754" stroke="#383835" stroke-width="1"/>
+<path d="M178 568 H197.2 a4.0 4.0 0 0 1 4.0 4.0 V582.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="581.0" font-size="11" text-anchor="end" fill="#c3c2b7">v0_naive</text>
+<text x="208.2" y="581.0" font-size="11" font-weight="400" fill="#c3c2b7" style="font-variant-numeric:tabular-nums">8.09</text>
+<path d="M178 596 H213.7 a4.0 4.0 0 0 1 4.0 4.0 V610.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="609.0" font-size="11" text-anchor="end" fill="#c3c2b7">v1_lds_tile</text>
+<path d="M178 624 H371.1 a4.0 4.0 0 0 1 4.0 4.0 V638.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="637.0" font-size="11" text-anchor="end" fill="#c3c2b7">v2_thread_tile</text>
+<path d="M178 652 H371.5 a4.0 4.0 0 0 1 4.0 4.0 V666.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="665.0" font-size="11" text-anchor="end" fill="#c3c2b7">v3_prefetch</text>
+<path d="M178 680 H371.2 a4.0 4.0 0 0 1 4.0 4.0 V694.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#3987e5"/>
+<text x="169" y="693.0" font-size="11" text-anchor="end" fill="#c3c2b7">v4_double_buffer</text>
+<path d="M178 708 H497.5 a4.0 4.0 0 0 1 4.0 4.0 V722.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="721.0" font-size="11" text-anchor="end" fill="#c3c2b7">v5_mfma</text>
+<path d="M178 736 H500.4 a4.0 4.0 0 0 1 4.0 4.0 V750.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#d95926"/>
+<text x="169" y="749.0" font-size="11" text-anchor="end" fill="#c3c2b7">v6_tuned</text>
+<text x="511.4" y="749.0" font-size="11" font-weight="600" fill="#ffffff" style="font-variant-numeric:tabular-nums">114</text>
+<line x1="564.4" y1="563" x2="564.4" y2="757" stroke="#c3c2b7" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="569.4" y="559" font-size="10.5" fill="#c3c2b7">torch / rocBLAS</text>
 </svg>

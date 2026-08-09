@@ -18,6 +18,7 @@ from .sgemm_v2_thread_tile import BM, BK, BN, build as build_v2
 from .sgemm_v3_prefetch import build as build_v3
 from .sgemm_v4_double_buffer import build as build_v4
 from .sgemm_v5_mfma import build as build_v5
+from .sgemm_v6_tuned import build as build_v6
 
 
 def _na(*_a, **_k):
@@ -76,6 +77,11 @@ register(
                     origin="(CDNA4 answer to the repo's SASS-tuning chapter)",
                     supports=lambda **s: s["M"] % BM == 0 and s["N"] % BN == 0
                     and s["K"] % BK == 0),
+            Variant("v6_tuned", "v5 + tile picked from the shape, LDS ping-pong, sched hints",
+                    _g(build_v6),
+                    origin="(CDNA4 addition, from the /gemm-optimization skill)",
+                    supports=lambda **s: s["M"] % 64 == 0 and s["N"] % 64 == 0
+                    and s["K"] % 32 == 0),
         ],
         shapes=[Shape("1024^3", {"M": 1024, "N": 1024, "K": 1024}),
                 Shape("2048^3", {"M": 2048, "N": 2048, "K": 2048}),

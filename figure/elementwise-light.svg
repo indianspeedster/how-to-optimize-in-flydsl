@@ -16,16 +16,16 @@
 <line x1="608.0" y1="88" x2="608.0" y2="190" stroke="#e1e0d9" stroke-width="1"/>
 <text x="608.0" y="205" font-size="10.5" text-anchor="middle" fill="#898781" style="font-variant-numeric:tabular-nums">6,000</text>
 <line x1="178" y1="88" x2="178" y2="190" stroke="#c3c2b7" stroke-width="1"/>
-<path d="M178 88 H536.7 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<path d="M178 88 H531.8 a4.0 4.0 0 0 1 4.0 4.0 V102.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
 <text x="169" y="101.0" font-size="11" text-anchor="end" fill="#52514e">v0_float</text>
-<text x="547.7" y="101.0" font-size="11" font-weight="400" fill="#52514e" style="font-variant-numeric:tabular-nums">5,061</text>
-<path d="M178 116 H547.2 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<text x="542.8" y="101.0" font-size="11" font-weight="400" fill="#52514e" style="font-variant-numeric:tabular-nums">4,992</text>
+<path d="M178 116 H548.2 a4.0 4.0 0 0 1 4.0 4.0 V130.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
 <text x="169" y="129.0" font-size="11" text-anchor="end" fill="#52514e">v1_float2</text>
-<path d="M178 144 H590.3 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
+<path d="M178 144 H601.1 a4.0 4.0 0 0 1 4.0 4.0 V158.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#2a78d6"/>
 <text x="169" y="157.0" font-size="11" text-anchor="end" fill="#52514e">v2_float4</text>
-<text x="601.3" y="157.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">5,809</text>
-<path d="M178 172 H568.0 a4.0 4.0 0 0 1 4.0 4.0 V186.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#eb6834"/>
+<text x="612.1" y="157.0" font-size="11" font-weight="600" fill="#0b0b0b" style="font-variant-numeric:tabular-nums">5,960</text>
+<path d="M178 172 H571.4 a4.0 4.0 0 0 1 4.0 4.0 V186.0 a4.0 4.0 0 0 1 -4.0 4.0 H178 Z" fill="#eb6834"/>
 <text x="169" y="185.0" font-size="11" text-anchor="end" fill="#52514e">v3_float4_x4</text>
-<line x1="594.9" y1="83" x2="594.9" y2="193" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
-<text x="599.9" y="79" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
+<line x1="605.7" y1="83" x2="605.7" y2="193" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="610.7" y="79" font-size="10.5" fill="#52514e">torch / rocBLAS</text>
 </svg>

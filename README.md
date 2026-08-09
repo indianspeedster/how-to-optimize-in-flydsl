@@ -99,11 +99,17 @@ wavefront divides 64 rather than 32.
 
 ### [4. sgemm](sgemm/) -- two levels of blocking, then the matrix cores
 
-Naive, LDS tile, register tile, prefetch, LDS ping-pong, MFMA.
+Naive, LDS tile, register tile, prefetch, LDS ping-pong, MFMA, and a tuned
+matrix-core rung.
 
-**8.1 -> 113.8 TFLOP/s, a 14x span, ending at 84% of rocBLAS.** The vector-FMA
+**8.1 -> 113.9 TFLOP/s, a 14x span, ending at 84% of rocBLAS.** The vector-FMA
 rungs plateau at 97% of the FP32 vector peak; the only move left is the one the
 hardware asks for, and `v_mfma_f32_16x16x4_f32` is 1.65x the best of them.
+
+This is the **one op in the repo where the vendor library wins**, at every size.
+`v6_tuned` closes most of the gap by picking its tile from the problem shape
+(3.1x over v5 at 1024^3), but rocBLAS runs at 94% of the FP32 matrix peak and
+this ladder does not get there -- the chapter says why, and what it would take.
 
 ### [5. spmv](spmv/) -- the lanes-per-row knob
 
