@@ -24,6 +24,49 @@ One file per rung, as in the original. They differ only in the two constants at
 the top of each file (`VEC`, `PER_THREAD`) -- diff any two and the change is the
 whole lesson.
 
+## How each rung accesses memory
+
+One picture per rung, showing exactly which thread touches which
+element and when -- the thing that actually changes from one rung to
+the next. Counts are scaled down to fit a page (16 threads for 256,
+8 lanes for 64); the shapes are exact.
+
+### `v0_float`
+
+one f32 per lane (buffer_load_dword)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/elementwise-v0-dark.svg">
+  <img alt="elementwise v0_float access pattern" src="../figure/access/elementwise-v0-light.svg">
+</picture>
+
+### `v1_float2`
+
+two f32 per lane (buffer_load_dwordx2)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/elementwise-v1-dark.svg">
+  <img alt="elementwise v1_float2 access pattern" src="../figure/access/elementwise-v1-light.svg">
+</picture>
+
+### `v2_float4`
+
+four f32 per lane (buffer_load_dwordx4)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/elementwise-v2-dark.svg">
+  <img alt="elementwise v2_float4 access pattern" src="../figure/access/elementwise-v2-light.svg">
+</picture>
+
+### `v3_float4_x4`
+
+4x float4 per lane -- more loads in flight
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/elementwise-v3-dark.svg">
+  <img alt="elementwise v3_float4_x4 access pattern" src="../figure/access/elementwise-v3-light.svg">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figure/elementwise-dark.svg">
   <img alt="elementwise ladder: achieved bandwidth per rung" src="../figure/elementwise-light.svg">

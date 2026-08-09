@@ -31,6 +31,49 @@ than rocBLAS at every shape tested.
   wavefront per row leaves the machine underfilled at small M; a whole 256-thread
   workgroup per row, finished with an LDS block reduction, keeps every CU busy.
 
+## How each rung accesses memory
+
+One picture per rung, showing exactly which thread touches which
+element and when -- the thing that actually changes from one rung to
+the next. Counts are scaled down to fit a page (16 threads for 256,
+8 lanes for 64); the shapes are exact.
+
+### `v0_wave_per_row`
+
+1 wavefront per row, 1 column per lane
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemv-v0-dark.svg">
+  <img alt="sgemv v0_wave_per_row access pattern" src="../figure/access/sgemv-v0-light.svg">
+</picture>
+
+### `v1_wave_per_row_vec4`
+
+1 wavefront per row, float4 per lane
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemv-v1-dark.svg">
+  <img alt="sgemv v1_wave_per_row_vec4 access pattern" src="../figure/access/sgemv-v1-light.svg">
+</picture>
+
+### `v2_subwave_per_row`
+
+64/N rows per wavefront, N lanes each
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemv-v2-dark.svg">
+  <img alt="sgemv v2_subwave_per_row access pattern" src="../figure/access/sgemv-v2-light.svg">
+</picture>
+
+### `v3_block_per_row`
+
+1 workgroup per row + LDS block reduce
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemv-v3-dark.svg">
+  <img alt="sgemv v3_block_per_row access pattern" src="../figure/access/sgemv-v3-light.svg">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figure/sgemv-dark.svg">
   <img alt="sgemv ladder: achieved bandwidth per rung, three matrix shapes" src="../figure/sgemv-light.svg">

@@ -15,8 +15,9 @@ bench-json:               ## same, and write results/bench.json
 	@mkdir -p results
 	$(PY) -m bench --json results/bench.json
 
-figures:                  ## redraw figure/*.svg from results/bench.json
+figures:                  ## redraw every figure (charts from bench.json, diagrams from spec)
 	$(PY) docs/make_figures.py
+	$(PY) docs/make_diagrams.py
 
 list:                     ## show every op and its rungs
 	$(PY) -m bench --list

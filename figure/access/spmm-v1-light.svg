@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="932" height="266" viewBox="0 0 932 266" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="932" height="266" fill="#fcfcfb"/>
+<text x="0" y="17" font-size="13" font-weight="600" fill="#0b0b0b">spmm v1 -- stage the row in LDS</text>
+<text x="0" y="34" font-size="10.5" fill="#52514e">the kernel the CUDA source calls 'useless optimize'</text>
+<text x="94" y="68" font-size="10.5" text-anchor="end" fill="#52514e">A row -&gt; LDS</text>
+<rect x="104" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="117.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t0</text>
+<rect x="134" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="147.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t1</text>
+<rect x="164" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="177.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t2</text>
+<rect x="194" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="207.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t3</text>
+<rect x="224" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="237.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t4</text>
+<rect x="254" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="267.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t5</text>
+<rect x="284" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="297.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t6</text>
+<rect x="314" y="54" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="327.0" y="68" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t7</text>
+<path d="M105 60 V55 H339 V60" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="222" y="51" font-size="9" text-anchor="middle" fill="#52514e">CHUNK (col,val) pairs staged cooperatively</text>
+<text x="94" y="118" font-size="10.5" text-anchor="end" fill="#52514e">A row nnz</text>
+<rect x="104" y="104" width="26" height="20" rx="3" fill="#2a78d6" stroke="none" stroke-width="1"/>
+<text x="117.0" y="118" font-size="9.5" text-anchor="middle" fill="#fcfcfb">nz0</text>
+<rect x="134" y="104" width="26" height="20" rx="3" fill="#2a78d6" stroke="none" stroke-width="1"/>
+<text x="147.0" y="118" font-size="9.5" text-anchor="middle" fill="#fcfcfb">nz1</text>
+<rect x="164" y="104" width="26" height="20" rx="3" fill="#2a78d6" stroke="none" stroke-width="1"/>
+<text x="177.0" y="118" font-size="9.5" text-anchor="middle" fill="#fcfcfb">nz2</text>
+<rect x="194" y="104" width="26" height="20" rx="3" fill="#2a78d6" stroke="none" stroke-width="1"/>
+<text x="207.0" y="118" font-size="9.5" text-anchor="middle" fill="#fcfcfb">nz3</text>
+<path d="M105 110 V105 H219 V110" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="162" y="101" font-size="9" text-anchor="middle" fill="#52514e">walked serially -- same row for every thread in the block</text>
+<text x="94" y="168" font-size="10.5" text-anchor="end" fill="#52514e">C columns</text>
+<rect x="104" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="117.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t0</text>
+<rect x="134" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="147.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t1</text>
+<rect x="164" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="177.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t2</text>
+<rect x="194" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="207.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t3</text>
+<rect x="224" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="237.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t4</text>
+<rect x="254" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="267.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t5</text>
+<rect x="284" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="297.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t6</text>
+<rect x="314" y="154" width="26" height="20" rx="3" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="327.0" y="168" font-size="9.5" text-anchor="middle" fill="#fcfcfb">t7</text>
+<path d="M105 160 V155 H129 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="117" y="151" font-size="9" text-anchor="middle" fill="#52514e">dword</text>
+<path d="M135 160 V155 H159 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="147" y="151" font-size="9" text-anchor="middle" fill="#52514e"></text>
+<path d="M165 160 V155 H189 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="177" y="151" font-size="9" text-anchor="middle" fill="#52514e"></text>
+<path d="M195 160 V155 H219 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="207" y="151" font-size="9" text-anchor="middle" fill="#52514e"></text>
+<path d="M225 160 V155 H249 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="237" y="151" font-size="9" text-anchor="middle" fill="#52514e"></text>
+<path d="M255 160 V155 H279 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="267" y="151" font-size="9" text-anchor="middle" fill="#52514e"></text>
+<path d="M285 160 V155 H309 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="297" y="151" font-size="9" text-anchor="middle" fill="#52514e"></text>
+<path d="M315 160 V155 H339 V160" fill="none" stroke="#52514e" stroke-width="1.2"/>
+<text x="327" y="151" font-size="9" text-anchor="middle" fill="#52514e"></text>
+<text x="104" y="202" font-size="10" fill="#898781">each thread owns 1 output column(s); the dense side is where essentially all the traffic is</text>
+<text x="104" y="220" font-size="10" fill="#898781">the LDS staging also forces a CHUNK-sized outer loop -- which is what wins 4.6x on a power-law matrix</text>
+<rect x="104" y="234" width="11" height="11" rx="2.5" fill="#2a78d6"/>
+<text x="120" y="243" font-size="9.5" fill="#52514e">sparse side</text>
+<rect x="186.5" y="234" width="11" height="11" rx="2.5" fill="#eb6834"/>
+<text x="202.5" y="243" font-size="9.5" fill="#52514e">dense side / staged</text>
+</svg>

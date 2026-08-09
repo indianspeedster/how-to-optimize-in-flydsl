@@ -34,6 +34,58 @@ not in the repository, so its sparse benchmarks are not reproducible as shipped.
 pattern (every row the same length, perfect load balance) and a `skewed`
 power-law pattern with the same mean, which is what real graphs look like.
 
+## How each rung accesses memory
+
+One picture per rung, showing exactly which thread touches which
+element and when -- the thing that actually changes from one rung to
+the next. Counts are scaled down to fit a page (16 threads for 256,
+8 lanes for 64); the shapes are exact.
+
+### `v0_thread_per_row`
+
+1 lane per row (the classic scalar CSR kernel)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmv-v0-dark.svg">
+  <img alt="spmv v0_thread_per_row access pattern" src="../figure/access/spmv-v0-light.svg">
+</picture>
+
+### `v1_4_lanes`
+
+4 lanes per row
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmv-v1-dark.svg">
+  <img alt="spmv v1_4_lanes access pattern" src="../figure/access/spmv-v1-light.svg">
+</picture>
+
+### `v2_8_lanes`
+
+8 lanes per row
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmv-v2-dark.svg">
+  <img alt="spmv v2_8_lanes access pattern" src="../figure/access/spmv-v2-light.svg">
+</picture>
+
+### `v3_16_lanes`
+
+16 lanes per row
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmv-v3-dark.svg">
+  <img alt="spmv v3_16_lanes access pattern" src="../figure/access/spmv-v3-light.svg">
+</picture>
+
+### `v4_wave_per_row`
+
+a full 64-lane wavefront per row
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmv-v4-dark.svg">
+  <img alt="spmv v4_wave_per_row access pattern" src="../figure/access/spmv-v4-light.svg">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figure/spmv-dark.svg">
   <img alt="spmv: throughput as the lanes-per-row knob is swept, three matrices" src="../figure/spmv-light.svg">

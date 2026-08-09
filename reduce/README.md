@@ -45,6 +45,103 @@ cross-wave LDS array holds 4 partials for a 256-thread block instead of 8.
 
 **`v8`/`v9` have no CUDA counterpart** and neither delivers a win -- see below.
 
+## How each rung accesses memory
+
+One picture per rung, showing exactly which thread touches which
+element and when -- the thing that actually changes from one rung to
+the next. Counts are scaled down to fit a page (16 threads for 256,
+8 lanes for 64); the shapes are exact.
+
+### `v0_baseline`
+
+LDS tree, tid % (2s) == 0 -- divergent
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v0-dark.svg">
+  <img alt="reduce v0_baseline access pattern" src="../figure/access/reduce-v0-light.svg">
+</picture>
+
+### `v1_no_divergence`
+
+index = 2*s*tid -- active lanes contiguous
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v1-dark.svg">
+  <img alt="reduce v1_no_divergence access pattern" src="../figure/access/reduce-v1-light.svg">
+</picture>
+
+### `v2_no_bank_conflict`
+
+s halving, tid < s -- conflict-free LDS
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v2-dark.svg">
+  <img alt="reduce v2_no_bank_conflict access pattern" src="../figure/access/reduce-v2-light.svg">
+</picture>
+
+### `v3_add_during_load`
+
+fold 2 globals per thread before the tree
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v3-dark.svg">
+  <img alt="reduce v3_add_during_load access pattern" src="../figure/access/reduce-v3-light.svg">
+</picture>
+
+### `v4_unroll_last_wave`
+
+last 64 lanes finish in registers, no barrier
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v4-dark.svg">
+  <img alt="reduce v4_unroll_last_wave access pattern" src="../figure/access/reduce-v4-light.svg">
+</picture>
+
+### `v5_full_unroll`
+
+LDS levels emitted straight-line (constexpr)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v5-dark.svg">
+  <img alt="reduce v5_full_unroll access pattern" src="../figure/access/reduce-v5-light.svg">
+</picture>
+
+### `v6_multi_add`
+
+serial accumulate N/262144 per thread, then the tree
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v6-dark.svg">
+  <img alt="reduce v6_multi_add access pattern" src="../figure/access/reduce-v6-light.svg">
+</picture>
+
+### `v7_shuffle`
+
+serial accumulate, then wave shuffle + 4 LDS slots
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v7-dark.svg">
+  <img alt="reduce v7_shuffle access pattern" src="../figure/access/reduce-v7-light.svg">
+</picture>
+
+### `v8_shuffle_vec4`
+
+v7 with dwordx4 loads
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v8-dark.svg">
+  <img alt="reduce v8_shuffle_vec4 access pattern" src="../figure/access/reduce-v8-light.svg">
+</picture>
+
+### `v9_vec4_wide_grid`
+
+v8 on a 8192-block grid (32/CU)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/reduce-v9-dark.svg">
+  <img alt="reduce v9_vec4_wide_grid access pattern" src="../figure/access/reduce-v9-light.svg">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figure/reduce-dark.svg">
   <img alt="reduce ladder: achieved bandwidth per rung" src="../figure/reduce-light.svg">

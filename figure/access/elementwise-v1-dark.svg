@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="804" height="150" viewBox="0 0 804 150" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<rect width="804" height="150" fill="#1a1a19"/>
+<text x="0" y="17" font-size="13" font-weight="600" fill="#ffffff">elementwise v1 -- two f32 per lane</text>
+<text x="0" y="34" font-size="10.5" fill="#c3c2b7">lane i owns 2i, 2i+1; half the instructions for the same bytes</text>
+<text x="94" y="68" font-size="10.5" text-anchor="end" fill="#c3c2b7">A / B / C</text>
+<rect x="104" y="54" width="26" height="20" rx="3" fill="#d95926" stroke="none" stroke-width="1"/>
+<text x="117.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t0</text>
+<rect x="134" y="54" width="26" height="20" rx="3" fill="#d95926" stroke="none" stroke-width="1"/>
+<rect x="164" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<text x="177.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t1</text>
+<rect x="194" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<rect x="224" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<text x="237.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t2</text>
+<rect x="254" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<rect x="284" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<text x="297.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t3</text>
+<rect x="314" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<rect x="344" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<text x="357.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t4</text>
+<rect x="374" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<rect x="404" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<text x="417.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t5</text>
+<rect x="434" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<rect x="464" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<text x="477.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t6</text>
+<rect x="494" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<rect x="524" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<text x="537.0" y="68" font-size="9.5" text-anchor="middle" fill="#1a1a19">t7</text>
+<rect x="554" y="54" width="26" height="20" rx="3" fill="#3987e5" stroke="none" stroke-width="1"/>
+<path d="M105 60 V55 H159 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="132" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7">x2</text>
+<path d="M165 60 V55 H219 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="192" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7"></text>
+<path d="M225 60 V55 H279 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="252" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7"></text>
+<path d="M285 60 V55 H339 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="312" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7"></text>
+<path d="M345 60 V55 H399 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="372" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7"></text>
+<path d="M405 60 V55 H459 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="432" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7"></text>
+<path d="M465 60 V55 H519 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="492" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7"></text>
+<path d="M525 60 V55 H579 V60" fill="none" stroke="#c3c2b7" stroke-width="1.2"/>
+<text x="552" y="51" font-size="9" text-anchor="middle" fill="#c3c2b7"></text>
+<text x="104" y="104" font-size="10" fill="#898781">8 lanes shown of a 64-lane wavefront; each lane moves 2 f32 = 64 bits per transaction</text>
+<rect x="104" y="118" width="11" height="11" rx="2.5" fill="#3987e5"/>
+<text x="120" y="127" font-size="9.5" fill="#c3c2b7">elements this lane touches</text>
+<rect x="269.0" y="118" width="11" height="11" rx="2.5" fill="#d95926"/>
+<text x="285.0" y="127" font-size="9.5" fill="#c3c2b7">lane 0, highlighted</text>
+</svg>

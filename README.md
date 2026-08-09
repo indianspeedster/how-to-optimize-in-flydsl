@@ -128,6 +128,9 @@ elementwise/  reduce/  sgemv/  sgemm/  spmv/  spmm/
     README.md      the chapter: rungs, what changed from CUDA, results
     __init__.py    the ladder: problem, reference, metrics, rungs in order
     <op>_vN_*.py   one file per rung -- diff two of them to see the step
+figure/
+    <op>-*.svg         the ladder charts, generated from results/bench.json
+    access/<op>-vN-*   one access-pattern diagram per rung, generated from a spec
 common/
     env.py         hardware detection + the peak figures results are measured against
     dsl.py         shared device-side helpers (copy atoms, shuffles, MFMA, fast launch)

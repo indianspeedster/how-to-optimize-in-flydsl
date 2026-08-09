@@ -37,6 +37,40 @@ barrier-synchronised passes that the whole workgroup advances through together.
 "Useless" was measured on balanced matrices; it does not survive contact with a
 real graph.
 
+## How each rung accesses memory
+
+One picture per rung, showing exactly which thread touches which
+element and when -- the thing that actually changes from one rung to
+the next. Counts are scaled down to fit a page (16 threads for 256,
+8 lanes for 64); the shapes are exact.
+
+### `v0_scalar`
+
+1 output column per thread, scalar B loads
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmm-v0-dark.svg">
+  <img alt="spmm v0_scalar access pattern" src="../figure/access/spmm-v0-light.svg">
+</picture>
+
+### `v1_lds_row`
+
+stage the row's (col,val) pairs in LDS first
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmm-v1-dark.svg">
+  <img alt="spmm v1_lds_row access pattern" src="../figure/access/spmm-v1-light.svg">
+</picture>
+
+### `v2_vec4`
+
+4 output columns per thread, float4 B loads
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/spmm-v2-dark.svg">
+  <img alt="spmm v2_vec4 access pattern" src="../figure/access/spmm-v2-light.svg">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figure/spmm-dark.svg">
   <img alt="spmm ladder: throughput per rung, three problem shapes" src="../figure/spmm-light.svg">

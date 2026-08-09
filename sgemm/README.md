@@ -44,6 +44,67 @@ empirically against `A @ B` before any GEMM was built on it, not recalled):
 | B (4x16) | `B[l / 16][l % 16]` |
 | D/C (16x16), 4 VGPRs | `D[4*(l/16) + r][l % 16]`, `r in 0..3` |
 
+## How each rung accesses memory
+
+One picture per rung, showing exactly which thread touches which
+element and when -- the thing that actually changes from one rung to
+the next. Counts are scaled down to fit a page (16 threads for 256,
+8 lanes for 64); the shapes are exact.
+
+### `v0_naive`
+
+one thread per C element, all operands from global
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemm-v0-dark.svg">
+  <img alt="sgemm v0_naive access pattern" src="../figure/access/sgemm-v0-light.svg">
+</picture>
+
+### `v1_lds_tile`
+
+16x16x16 LDS tile, 1 C element per thread
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemm-v1-dark.svg">
+  <img alt="sgemm v1_lds_tile access pattern" src="../figure/access/sgemm-v1-light.svg">
+</picture>
+
+### `v2_thread_tile`
+
+128x128x8 tile, 8x8 per thread, float4 + LDS
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemm-v2-dark.svg">
+  <img alt="sgemm v2_thread_tile access pattern" src="../figure/access/sgemm-v2-light.svg">
+</picture>
+
+### `v3_prefetch`
+
+v2 + next-tile global prefetch into registers
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemm-v3-dark.svg">
+  <img alt="sgemm v3_prefetch access pattern" src="../figure/access/sgemm-v3-light.svg">
+</picture>
+
+### `v4_double_buffer`
+
+v3 + LDS ping-pong: one barrier per K-tile
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemm-v4-dark.svg">
+  <img alt="sgemm v4_double_buffer access pattern" src="../figure/access/sgemm-v4-light.svg">
+</picture>
+
+### `v5_mfma`
+
+same blocking, v_mfma_f32_16x16x4_f32 matrix cores
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../figure/access/sgemm-v5-dark.svg">
+  <img alt="sgemm v5_mfma access pattern" src="../figure/access/sgemm-v5-light.svg">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../figure/sgemm-dark.svg">
   <img alt="sgemm ladder: TFLOP/s per rung at 1024, 2048 and 4096 cubed" src="../figure/sgemm-light.svg">
