@@ -21,7 +21,7 @@ import traceback
 import torch
 
 from bench.timing import autoscale_iters, time_callable
-from flyopt import env, registry
+from common import env, registry
 
 # The functools.lru_cache-free build cache: FlyDSL specialises on shape, so one
 # compiled callable per (variant, shape).

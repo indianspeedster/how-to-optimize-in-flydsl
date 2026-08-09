@@ -22,7 +22,7 @@ original it ports -- see ``docs/porting-notes.md``.
 
 from __future__ import annotations
 
-from flyopt.env import flydsl_available
+from common.env import flydsl_available
 
 HAVE_FLYDSL = flydsl_available()
 
@@ -143,7 +143,7 @@ if HAVE_FLYDSL:
 
         ``a`` and ``b`` are one f32 per lane, ``c``/result a ``vector<4xf32>``.
         The lane->element mapping is fixed by the hardware and is documented (and
-        empirically confirmed) at the call site in flyopt/sgemm.py.
+        empirically confirmed) at the call site in sgemm/mfma.py.
         """
         op = _rocdl_dial.mfma_f32_16x16x4f32(
             Vec.make_type(4, fx.Float32),
@@ -171,7 +171,7 @@ if HAVE_FLYDSL:
         widths (2, 4, ... 32) are legal and are how the sgemv "many short rows"
         variant packs several rows into one wavefront.
         """
-        from flyopt.env import wave_size
+        from common.env import wave_size
 
         width = wave_size() if width is None else width
         w = value
@@ -188,7 +188,7 @@ if HAVE_FLYDSL:
         instruction count as the butterfly, but the other lanes hold garbage --
         use it only where a ``lane == 0`` guard follows.
         """
-        from flyopt.env import wave_size
+        from common.env import wave_size
 
         width = wave_size() if width is None else width
         w = value
@@ -211,7 +211,7 @@ if HAVE_FLYDSL:
         (<= 8 for a 512-thread block), so there is no second barrier and no
         second wave reduction.
         """
-        from flyopt.env import wave_size
+        from common.env import wave_size
 
         wave_width = wave_size() if wave_width is None else wave_width
         w = wave_reduce_sum(value, wave_width)

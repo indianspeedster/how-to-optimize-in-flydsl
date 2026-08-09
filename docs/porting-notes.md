@@ -28,7 +28,7 @@ or endorsed by AMD. See the disclaimer in `README.md`.
 
 From AMD's *Introducing AMD CDNA 4 Architecture* whitepaper (via the `gfx950`
 skill's `microarch.md`, which is not vendored in this repo), reproduced in
-`flyopt/env.py`:
+`common/env.py`:
 
 - HBM3E **8 TB/s**, LDS **160 KB/CU** at 256 B/clock
 - FP32 **vector** ~ 72 TFLOP/s at MI350X clocks
@@ -105,7 +105,7 @@ identity. Same shape of fix applies wherever a cross-lane op sits under a guard.
 The AST rewriter only transforms the `@flyc.kernel` function's own AST. A helper
 imported from elsewhere runs as plain Python during tracing, so an `if` on a
 runtime value is evaluated by CPython -- silently taking one branch at compile
-time. `flyopt/dsl.py` is therefore entirely branch-free; `block_reduce_sum`
+time. `common/dsl.py` is therefore entirely branch-free; `block_reduce_sum`
 replaces CUDA's `if (lane == 0) store` with a `select` into a write-only sink
 slot (racy, never read) precisely for this reason.
 

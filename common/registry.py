@@ -108,4 +108,4 @@ def _load_all() -> None:
     if _loaded:
         return
     _loaded = True
-    from flyopt import elementwise, reduce, sgemm, sgemv, spmm, spmv  # noqa: F401
+    import elementwise, reduce, sgemm, sgemv, spmm, spmv  # noqa: F401

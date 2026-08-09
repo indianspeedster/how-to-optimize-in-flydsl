@@ -13,7 +13,7 @@ kernel legitimately refuses N=16.
 import pytest
 import torch
 
-from flyopt import env, registry
+from common import env, registry
 
 pytestmark = pytest.mark.skipif(not env.flydsl_available(),
                                 reason="needs the FlyDSL wheel and a ROCm GPU")

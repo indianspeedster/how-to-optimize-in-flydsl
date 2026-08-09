@@ -31,12 +31,19 @@ They are **not** vendored here -- they live outside this repo (on the machine
 where it was written, under `flydsl-wgrad-ragged/.claude/skills/`). If you have
 them, load `/flydsl` before writing a kernel; it auto-loads `/gfx950`, whose
 `isa-index.md` and `isa.xml` are the authority on instruction shapes. Without
-them, `flyopt/env.py` carries the handful of silicon facts this repo actually
+them, `common/env.py` carries the handful of silicon facts this repo actually
 budgets against.
 
 ## Structure
 
-Adding a rung means adding a `Variant` to an existing `Op` in `flyopt/<op>.py`.
+One folder per kernel, mirroring the CUDA original: `elementwise/`, `reduce/`,
+`sgemv/`, `sgemm/`, `spmv/`, `spmm/`. Inside each, `README.md` is the chapter,
+`__init__.py` is the ladder (problem, reference, metrics, rungs in order), and
+the remaining `.py` files are the rung builders, split one file per structural
+step. Shared machinery lives in `common/`.
+
+Adding a rung means adding a `Variant` to the `Op` in `<op>/__init__.py` and its
+builder to the matching file in that folder.
 A `Variant` is a *builder* -- `build(**shape) -> run(*tensors)` -- because FlyDSL
 specialises on compile-time shape. The bench and the tests both drive the
 registry, so a registered rung is automatically verified, timed, and tested.
@@ -48,11 +55,13 @@ Conventions that are not optional:
 - **Wrap every `@flyc.jit` launcher in `dsl.fast_launcher`.** Without it, host
   dispatch dominates any kernel under ~50 us and looks exactly like a hardware
   roof.
-- **`flyopt/dsl.py` stays branch-free.** Helpers there run as plain Python during
+- **`common/dsl.py` stays branch-free.** Helpers there run as plain Python during
   tracing, so a data-dependent `if` would be resolved at compile time. Use
   `.select()`.
 - **Use `dsl.fma`, not `a * b + c`,** in any inner loop. The latter does not
   contract and costs 6x in the GEMM.
+- **Update the folder's `README.md`** when you add or retune a rung; the table
+  there is the chapter, and the top-level README only carries the headline.
 - **Every `Variant` needs an `origin`** naming the CUDA file it ports, or saying
   it is a CDNA addition. A test enforces this.
 

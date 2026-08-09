@@ -73,7 +73,7 @@ def arch() -> Arch:
     if g in ARCHS:
         return ARCHS[g]
     raise RuntimeError(
-        f"No hardware record for {g!r} ({device_name()}). Add one to flyopt/env.py "
+        f"No hardware record for {g!r} ({device_name()}). Add one to common/env.py "
         f"-- do not benchmark against a guessed peak."
     )
 
