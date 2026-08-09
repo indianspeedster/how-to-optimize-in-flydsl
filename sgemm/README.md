@@ -8,6 +8,32 @@ registers, with the second level being what actually raises arithmetic
 intensity. The ladder here makes each level explicit and then adds the step CDNA
 asks for.
 
+## What it computes
+
+```
+C[m][n] = sum over k of A[m][k] * B[k][n]
+```
+
+| operand | shape / dtype | role |
+|---|---|---|
+| `A` | `f32[M, K]`, row-major | |
+| `B` | `f32[K, N]`, row-major | |
+| `C` | `f32[M, N]` | output |
+
+**Reference:** `(A.double() @ B.double()).float()`, checked to rtol 2e-3 /
+atol 2e-3. K reaches 4096 here, so an f32 reference would carry accumulation
+error of the same order as the kernel's and the comparison would stop meaning
+anything; float64 keeps it honest.
+
+**Metric:** `2*M*N*K flops / time`. This is the **only compute-bound ladder in
+the repo** -- arithmetic intensity grows with K, so every operand is reused
+O(K) times and TFLOP/s is the headline. The bandwidth column is reported only
+to show that memory is *not* the constraint.
+
+Everything is f32 to stay comparable with the CUDA original. On CDNA4 that is
+the worst datatype in relative terms: the matrix cores do 2.5 PFLOP/s of FP16
+and 5 PFLOP/s of FP8 against 157 TFLOP/s of FP32.
+
 ## Rungs
 
 | file | what it adds |

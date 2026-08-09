@@ -12,6 +12,27 @@ hopelessly memory bound at every size, so the headline metric is bandwidth, and
 "as fast as rocBLAS" would mean "both are at the memory roof". Here it is faster
 than rocBLAS at every shape tested.
 
+## What it computes
+
+```
+y[m] = sum over n of A[m][n] * x[n]        for m in 0 .. M-1
+```
+
+| operand | shape / dtype | role |
+|---|---|---|
+| `A` | `f32[M, N]`, row-major | the matrix; dominates all traffic |
+| `x` | `f32[N]` | the vector, small enough to stay in cache |
+| `y` | `f32[M]` | output |
+
+**Reference:** `(A.double() @ x.double()).float()`, checked to rtol 1e-3 /
+atol 1e-3. The reference accumulates in float64 so that it is not itself an f32
+summation carrying error of the same order as the kernel's.
+
+**Metric:** `(M*N + N + M) * 4 bytes / time`, with `2*M*N flops / time`
+alongside. A is read once and reused zero times, so this is **one FMA per 4
+bytes** -- memory-bound at every size, which is why bandwidth is the headline
+and "as fast as rocBLAS" would mean "both are at the memory roof".
+
 ## Rungs
 
 | file | what it does |

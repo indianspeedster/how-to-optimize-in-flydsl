@@ -6,6 +6,36 @@ Its two kernels answer one question: given that a CSR row must be walked
 serially, what does a thread block do with the fact that *every* output column of
 that row walks the **same** row?
 
+## What it computes
+
+The same CSR matrix, now times a **dense matrix** rather than a vector:
+
+```
+C[r][j] = sum over k in [row_offset[r], row_offset[r+1]) of
+              value[k] * B[ col_index[k] ][j]
+```
+
+| operand | shape / dtype | role |
+|---|---|---|
+| `row_offset` | `i32[rows+1]` | CSR row pointers |
+| `col_index` | `i32[nnz]` | the column of each non-zero |
+| `value` | `f32[nnz]` | the non-zeros |
+| `B` | `f32[cols, ncols]` | the dense operand -- where nearly all the traffic is |
+| `C` | `f32[rows, ncols]` | output |
+
+The structural difference from spmv is that **every one of the `ncols` output
+columns walks the same sparse row**. The sparse side is read redundantly and is
+nearly free (it broadcasts out of L1); the dense side is the entire cost. That
+is why the winning rung widens the dense access and leaves the row walk alone.
+
+**Reference:** `torch.sparse_csr_tensor(...) @ B`, checked to rtol/atol 1e-4.
+Matrices come from `common/sparse.py` with a fixed seed, as in spmv.
+
+**Metric:** `2*nnz*ncols flops / time`, with
+`(nnz*ncols + rows*ncols) * 4 bytes / time` alongside. Note this counts
+*logical* traffic: `B` is re-read often enough to be served largely from cache,
+which is why spmm plots above the HBM roof in the roofline chart.
+
 ## Rungs
 
 | file | what it does |

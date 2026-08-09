@@ -11,6 +11,26 @@ casts. FlyDSL expresses it as the copy *atom* -- `BufferCopy32b` / `64b` /
 `128b` -- which lowers to `buffer_load_dword` / `dwordx2` / `dwordx4`. Same axis,
 named honestly.
 
+## What it computes
+
+```
+C[i] = A[i] + B[i]        for i in 0 .. N-1
+```
+
+| operand | shape / dtype | role |
+|---|---|---|
+| `A` | `f32[N]` | input |
+| `B` | `f32[N]` | input |
+| `C` | `f32[N]` | output; the kernel writes all of it |
+
+**Reference:** `A + B` in f32, checked **bit-exact** (rtol 0, atol 0). One add
+per element is order-independent, so any correct kernel reproduces the
+reference exactly -- there is nothing for a tolerance to hide.
+
+**Metric:** `3 * N * 4 bytes / time`. Two reads and one write per element and a
+single flop, so this is pure HBM traffic: achieved bandwidth against the 8 TB/s
+peak is the only number that means anything here.
+
 ## Rungs
 
 | file | what it adds |

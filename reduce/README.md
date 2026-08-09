@@ -9,6 +9,37 @@ adds during load, then a large chunk once it accumulates serially), so they emit
 different-length outputs while reading the same `N` floats. As in the original
 README, the number that compares them is **bytes read per second**.
 
+## What it computes
+
+A **segmented** sum -- not a full reduction to one scalar. Each block reduces
+one contiguous chunk to a single float, exactly as the CUDA original's
+`d_out[blockIdx.x]` does:
+
+```
+y[b] = sum( x[b*E : (b+1)*E] )        for b in 0 .. N/E - 1
+```
+
+| operand | shape / dtype | role |
+|---|---|---|
+| `x` | `f32[N]` | input |
+| `y` | `f32[N/E]` | output, one partial sum per block |
+| `E` | -- | elements one block consumes: 256, 512, or `N/1024` depending on the rung |
+
+`E` changes as the ladder progresses (the CUDA files change their grid the same
+way), so the rungs emit **different-length outputs from the same input**. That
+is why they are compared on bytes read per second rather than on wall clock.
+
+**Reference:** `x.view(-1, E).sum(dim=1)`, checked **bit-exact** (rtol 0,
+atol 0). The input is random integers in `[0, 8)`, so every partial sum is an
+exactly representable f32 integer (worst case `8 * 32768 = 262144`, well under
+`2^24`). Summation order therefore cannot change the answer -- a rung that
+reassociates the adds is indistinguishable from one that does not, which is
+what lets the ladder be checked exactly instead of within a tolerance that
+could mask a real bug.
+
+**Metric:** `N * 4 bytes / time`. The kernel reads N floats and writes N/E, so
+it is read-dominated and the output is rounding error in the traffic.
+
 ## Rungs
 
 | file | what it adds |
